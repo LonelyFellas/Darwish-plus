@@ -1,0 +1,35 @@
+{
+  "name": "@darwish-hooks/use-press",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./lib/index.d.ts",
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "esm",
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build:cjs": "tsc",
+    "build:es": "tsc -m esNext --outDir esm",
+    "build": "pnpm build:cjs && pnpm build:es",
+    "prepublish": "npm run build",
+    "publish": "npm publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@darwish-hooks/use-set-state": "workspace:*"
+  },
+  "keywords": [
+    "use-press",
+    "hooks",
+    "react",
+    "darwish"
+  ],
+  "author": "darwish-utils <28958230@qq.com>",
+  "license": "ISC"
+}
