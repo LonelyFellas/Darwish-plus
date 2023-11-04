@@ -1,10 +1,8 @@
-// import useBoolean from '@darwish-hooks/use-boolean/esm/index';
+import useBoolean from '@darwish-hooks/use-boolean';
 function App() {
-  // const [isShowing, toggle] = useBoolean(false);
+  const [state, setState] = useBoolean(false);
   return (
-    <>
-      {/* <button onClick={toggle}>{isShowing ? 'Hide' : 'Show'}</button> */}
-    </>
+    <>{/* <button onClick={toggle}>{isShowing ? 'Hide' : 'Show'}</button> */}</>
   );
 }
 

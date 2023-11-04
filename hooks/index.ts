@@ -1,2 +1,2 @@
 export { default as useBoolean } from './useBoolean';
-export * from './useRouteStates';
+export { default as useToggle } from './useToggle';

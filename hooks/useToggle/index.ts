@@ -1,17 +1,24 @@
 import { useMemo, useState } from 'react';
 
+interface ToggleActions<T> {
+  toggle: () => void;
+  set: (settingValue: T) => void;
+  setLeft: () => void;
+  setRight: () => void;
+}
+
 function useToggle<T = boolean>(): [boolean, ToggleActions<T>];
 
 function useToggle<T>(): [T, ToggleActions<T>];
 
 function useToggle<T, U>(
   defaultValue: T,
-  reverseValue: U,
+  reverseValue: U
 ): [T | U, ToggleActions<T | U>];
 
 function useToggle<T, U>(
   defaultValue: T = false as unknown as T,
-  reverseValue?: U,
+  reverseValue?: U
 ) {
   const [state, setState] = useState<T | U>(defaultValue);
 
@@ -22,7 +29,7 @@ function useToggle<T, U>(
 
     const toggle = () => {
       setState((prev) =>
-        prev === defaultValue ? reverseValueOrigin : defaultValue,
+        prev === defaultValue ? reverseValueOrigin : defaultValue
       );
     };
     const set = (settingValue: T | U) => {
