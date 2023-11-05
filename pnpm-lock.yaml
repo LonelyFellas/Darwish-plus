@@ -218,6 +218,15 @@ importers:
 
   utils/cloneDeep: {}
 
+  utils/deepEqual:
+    dependencies:
+      '@darwish-utils/is':
+        specifier: workspace:*
+        version: link:../is
+      '@darwish-utils/others':
+        specifier: workspace:*
+        version: link:../others
+
   utils/dlv: {}
 
   utils/is: {}
@@ -239,6 +248,8 @@ importers:
       '@darwish-utils/is':
         specifier: workspace:*
         version: link:../is
+
+  utils/others: {}
 
 packages:
 

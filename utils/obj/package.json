@@ -1,6 +1,6 @@
 {
-  "name": "@darwish-utils/object",
-  "version": "0.0.0",
+  "name": "@darwish-utils/obj",
+  "version": "1.0.0",
   "description": "",
   "main": "./lib/index.js",
   "module": "./esm/index.js",

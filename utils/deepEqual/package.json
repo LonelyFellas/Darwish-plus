@@ -1,6 +1,6 @@
 {
-  "name": "@darwish-hooks/use-immer",
-  "version": "0.0.1",
+  "name": "@darwish-utils/deep-equal",
+  "version": "1.0.0",
   "description": "",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
@@ -22,10 +22,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "immer": "^10.0.2"
+    "@darwish-utils/is": "workspace:*",
+    "@darwish-utils/others": "workspace:*"
   },
   "keywords": [
-    "use-immer",
+    "deep-equal",
     "hooks",
     "react",
     "darwish"
