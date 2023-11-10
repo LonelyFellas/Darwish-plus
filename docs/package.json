@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@darwish-hooks/use-boolean": "workspace:*"
+    "@darwish-hooks/use-boolean": "workspace:*",
+    "@darwish-hooks/use-scroll": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.3",

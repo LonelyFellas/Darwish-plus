@@ -51,6 +51,9 @@ importers:
       '@darwish-hooks/use-boolean':
         specifier: workspace:*
         version: link:../hooks/useBoolean
+      '@darwish-hooks/use-scroll':
+        specifier: workspace:*
+        version: link:../hooks/useScroll
     devDependencies:
       '@vitejs/plugin-react':
         specifier: ^4.0.3
