@@ -54,6 +54,9 @@ importers:
       '@darwish-hooks/use-scroll':
         specifier: workspace:*
         version: link:../hooks/useScroll
+      '@darwish-utils/deep-equal':
+        specifier: workspace:*
+        version: link:../utils/deepEqual
     devDependencies:
       '@vitejs/plugin-react':
         specifier: ^4.0.3

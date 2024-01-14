@@ -13,6 +13,7 @@ const useScroll = (ref: React.MutableRefObject<HTMLDivElement>) => {
   const [page, setPage] = useSetState({
     x: 0,
     y: 0,
+    scrolling: false,
   });
 
   const onScroll = (event: OnScrollEvent) => {
