@@ -1,13 +1,19 @@
 {
   "name": "@darwish/types",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "main": "index.ts",
-  "types": "index.d.ts",
-  "typings": "index.d.ts",
+  "main": "src/index.ts",
+  "types": "src/darwish.d.ts",
+  "typings": "src/darwish.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "src",
+    "package.json",
+    "tsconfig.json",
+    "global.d.ts"
+  ],
   "publishConfig": {
     "access": "public"
   },

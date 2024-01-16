@@ -57,6 +57,9 @@ importers:
       '@darwish-utils/deep-equal':
         specifier: workspace:*
         version: link:../utils/deepEqual
+      '@darwish/types':
+        specifier: workspace:*
+        version: link:../types
     devDependencies:
       '@vitejs/plugin-react':
         specifier: ^4.0.3
@@ -210,6 +213,8 @@ importers:
       '@darwish-hooks/use-first-mount-state':
         specifier: workspace:*
         version: link:../useFirstMountState
+
+  types: {}
 
   utils: {}
 

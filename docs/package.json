@@ -12,7 +12,8 @@
   "dependencies": {
     "@darwish-hooks/use-boolean": "workspace:*",
     "@darwish-hooks/use-scroll": "workspace:*",
-    "@darwish-utils/deep-equal": "workspace:*"
+    "@darwish-utils/deep-equal": "workspace:*",
+    "@darwish/types": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.3",

@@ -2,3 +2,4 @@ packages:
   - 'docs'
   - 'hooks/**'
   - 'utils/**'
+  - 'types/**'
