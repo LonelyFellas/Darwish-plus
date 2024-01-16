@@ -10,7 +10,7 @@
     "strict": true,             
     "skipLibCheck": true,
     "declaration": true,
-    "moduleResolution": "Node"                        
+    "moduleResolution": "Node"
   },
   "exclude": ["node_modules"],
   "include": ["./index.ts"]

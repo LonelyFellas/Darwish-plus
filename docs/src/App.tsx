@@ -1,4 +1,4 @@
-type a = Darwish.Equal<1, 1>
+type A = Expcel<1, 2>
 function App() {
 
 
