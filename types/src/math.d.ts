@@ -126,105 +126,106 @@ export type IsTwoNumberGreater<
   ? true
   : TwoNumberBothPositiveGreater<A, B>;
 
-declare namespace Math {
-  type Add<A extends number, B extends number> = IsTwoNumberBothNonNegativeNum<
-    A,
-    B
-  > extends true
-    ? SumTwoNumberNonNegative<A, B>
-    : IsTwoNumberBothNonPositiveNum<A, B> extends true
-    ? Negation<SumTwoNumberNonNegative<Abs<A>, Abs<B>>>
-    : IsNegative<A> extends true
-    ? IsTwoNumberGreater<Math.Abs<A>, Math.Abs<B>> extends true
-      ? SubtractTwoNumberBothPositiveAndALessB<B, Math.Abs<A>>
-      : SubtractTwoNumberBothPositiveAndAGreaterB<B, Math.Abs<A>>
-    : IsNegative<B> extends true
-    ? IsTwoNumberGreater<Math.Abs<B>, A> extends true
-      ? SubtractTwoNumberBothPositiveAndALessB<A, Math.Abs<B>>
-      : SubtractTwoNumberBothPositiveAndAGreaterB<A, Math.Abs<B>>
-    : SumTwoNumberBothNegative<A, B>;
+export declare global {
+  namespace Math {
+    type Add<
+      A extends number,
+      B extends number
+    > = IsTwoNumberBothNonNegativeNum<A, B> extends true
+      ? SumTwoNumberNonNegative<A, B>
+      : IsTwoNumberBothNonPositiveNum<A, B> extends true
+      ? Negation<SumTwoNumberNonNegative<Abs<A>, Abs<B>>>
+      : IsNegative<A> extends true
+      ? IsTwoNumberGreater<Math.Abs<A>, Math.Abs<B>> extends true
+        ? SubtractTwoNumberBothPositiveAndALessB<B, Math.Abs<A>>
+        : SubtractTwoNumberBothPositiveAndAGreaterB<B, Math.Abs<A>>
+      : IsNegative<B> extends true
+      ? IsTwoNumberGreater<Math.Abs<B>, A> extends true
+        ? SubtractTwoNumberBothPositiveAndALessB<A, Math.Abs<B>>
+        : SubtractTwoNumberBothPositiveAndAGreaterB<A, Math.Abs<B>>
+      : SumTwoNumberBothNegative<A, B>;
 
-  type Subtract<A extends number, B extends number> = Add<A, Negation<B>>;
+    type Subtract<A extends number, B extends number> = Add<A, Negation<B>>;
 
-  /**
-   * @description 两个数比较大小 A > B 返回 true 否则返回 false
-   */
-  type TwoNumberGreater<
-    A extends number,
-    B extends number
-  > = IsTwoNumberGreater<A, B> extends true ? A : B;
-  /**
-   * @description 判断一个类型是否是负数
-   * @example
-   * type A = isNegative<1> // false
-   * type B = isNegative<-1> // true
-   */
-  type IsNegative<N extends number> = `${N}` extends `-${string}`
-    ? true
-    : false;
-  /**
-   * @description abs 绝对值 结果是一个字符串
-   */
-  type AbsStr<T extends number | string | bigint> =
-    `${T}` extends `-${infer Num}` ? Num : `${T}`;
-  /**
-   * @description abs 绝对值 结果是原类型
-   */
-  type Abs<T extends number | string | bigint> = T extends number | bigint
-    ? Darwish.ToNumber<AbsStr<T>>
-    : never;
-  /**
-   * @description 一个数字取反
-   */
-  type Negation<T extends number> = IsZero<T> extends true
-    ? 0
-    : IsNegative<T> extends true
-    ? Abs<T>
-    : Darwish.ToNumber<`-${T}`>;
-  /**
-   * @description 是否是0
-   */
-  type IsZero<T extends number> = Darwish.Equal<T, 0> extends true
-    ? true
-    : false;
-  /**
-   * @description 判断一个数是否是正数
-   */
-  type IsPositive<T extends number> = IsZero<T> extends false
-    ? IsNegative<T> extends false
+    /**
+     * @description 两个数比较大小 A > B 返回 true 否则返回 false
+     */
+    type TwoNumberGreater<
+      A extends number,
+      B extends number
+    > = IsTwoNumberGreater<A, B> extends true ? A : B;
+    /**
+     * @description 判断一个类型是否是负数
+     * @example
+     * type A = isNegative<1> // false
+     * type B = isNegative<-1> // true
+     */
+    type IsNegative<N extends number> = `${N}` extends `-${string}`
       ? true
-      : false
-    : false;
-  /**
-   * @description 两个数符号是否相同
-   */
-  type IsSomeSignNumber<
-    A extends number,
-    B extends number
-  > = IsZero<A> extends true
-    ? IsZero<B> extends true
+      : false;
+    /**
+     * @description abs 绝对值 结果是一个字符串
+     */
+    type AbsStr<T extends number | string | bigint> =
+      `${T}` extends `-${infer Num}` ? Num : `${T}`;
+    /**
+     * @description abs 绝对值 结果是原类型
+     */
+    type Abs<T extends number | string | bigint> = T extends number | bigint
+      ? Darwish.ToNumber<AbsStr<T>>
+      : never;
+    /**
+     * @description 一个数字取反
+     */
+    type Negation<T extends number> = IsZero<T> extends true
+      ? 0
+      : IsNegative<T> extends true
+      ? Abs<T>
+      : Darwish.ToNumber<`-${T}`>;
+    /**
+     * @description 是否是0
+     */
+    type IsZero<T extends number> = Darwish.Equal<T, 0> extends true
       ? true
-      : false
-    : Math.IsNegative<A> extends true
-    ? Math.IsNegative<B> extends true
+      : false;
+    /**
+     * @description 判断一个数是否是正数
+     */
+    type IsPositive<T extends number> = IsZero<T> extends false
+      ? IsNegative<T> extends false
+        ? true
+        : false
+      : false;
+    /**
+     * @description 两个数符号是否相同
+     */
+    type IsSomeSignNumber<
+      A extends number,
+      B extends number
+    > = IsZero<A> extends true
+      ? IsZero<B> extends true
+        ? true
+        : false
+      : Math.IsNegative<A> extends true
+      ? Math.IsNegative<B> extends true
+        ? true
+        : false
+      : Math.IsPositive<A> extends true
+      ? Math.IsPositive<B> extends true
+        ? true
+        : false
+      : false;
+    /**
+     * @description 一个数是否是非负数
+     */
+    type IsNonNegativeNum<T extends number> = IsNegative<T> extends false
       ? true
-      : false
-    : Math.IsPositive<A> extends true
-    ? Math.IsPositive<B> extends true
+      : false;
+    /**
+     * @description 一个数是否是非正数
+     */
+    type IsNonPositiveNum<T extends number> = IsPositive<T> extends false
       ? true
-      : false
-    : false;
-  /**
-   * @description 一个数是否是非负数
-   */
-  type IsNonNegativeNum<T extends number> = IsNegative<T> extends false
-    ? true
-    : false;
-  /**
-   * @description 一个数是否是非正数
-   */
-  type IsNonPositiveNum<T extends number> = IsPositive<T> extends false
-    ? true
-    : false;
+      : false;
+  }
 }
-export {};

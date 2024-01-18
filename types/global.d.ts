@@ -1,3 +1,6 @@
+/// <reference path="./src/math.d.ts" />
+/// <reference path="./src/darwish.d.ts" />
+
 declare global {
   // TEST UTILITIES
   type Expect<T extends true> = T;

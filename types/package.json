@@ -1,13 +1,20 @@
 {
   "name": "@darwish/types",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "",
-  "main": "src/index.ts",
-  "types": "src/darwish.d.ts",
-  "typings": "src/darwish.d.ts",
+  "main": "./global.d.ts",
+  "types": "./global.d.ts",
+  "typings": "./global.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "npm publish"
+  },
+  "exports": {
+    ".": {
+      "types": {
+        "default": "./src/darwish.d.ts"
+      }
+    }
   },
   "files": [
     "src",
