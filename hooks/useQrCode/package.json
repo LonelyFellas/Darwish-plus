@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-qrcode",
+  "name": "@darwish/use-qrcode",
   "version": "0.0.0",
   "description": "",
   "main": "./lib/index.js",

@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { isDev, isFunction } from '@darwish-utils/is';
-import useLatest from '@darwish-hooks/use-latest';
+import { useEffect } from "react";
+import { isDev, isFunction } from "@darwish-utils/is";
+import useLatest from "@darwish/use-latest";
 
 export default function useUnmount(fn: () => void) {
   if (isDev && !isFunction(fn)) {

@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-storage",
+  "name": "@darwish/use-storage",
   "version": "0.0.0",
   "description": "",
   "main": "./lib/index.js",

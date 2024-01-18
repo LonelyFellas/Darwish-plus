@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-update-effect",
+  "name": "@darwish/use-update-effect",
   "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",
@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish-hooks/use-first-mount-state": "workspace:*"
+    "@darwish/use-first-mount-state": "workspace:*"
   },
   "keywords": [
     "use-update-effect",

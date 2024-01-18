@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-mount",
+  "name": "@darwish/use-mount",
   "version": "0.0.3",
   "description": "",
   "main": "./lib/index.js",

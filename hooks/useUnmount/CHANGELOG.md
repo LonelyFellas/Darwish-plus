@@ -1,4 +1,4 @@
-# @darwish-hooks/use-unmount
+# @darwish/use-unmount
 
 ## 0.0.4
 

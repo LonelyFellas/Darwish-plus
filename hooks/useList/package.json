@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-list",
+  "name": "@darwish/use-list",
   "version": "0.0.3",
   "description": "",
   "main": "./lib/index.js",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@darwish-utils/is": "workspace:*",
-    "@darwish-hooks/use-update": "workspace:*"
+    "@darwish/use-update": "workspace:*"
   },
   "keywords": [
     "use-list",

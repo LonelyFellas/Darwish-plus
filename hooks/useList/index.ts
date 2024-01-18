@@ -1,6 +1,6 @@
-import { useMemo, useRef } from 'react';
-import { isFunction } from '@darwish-utils/is';
-import useUpdate from '@darwish-hooks/use-update';
+import { useMemo, useRef } from "react";
+import { isFunction } from "@darwish-utils/is";
+import useUpdate from "@darwish/use-update";
 
 type IHookState<T extends Array<unknown>> = T | ((args: T) => T);
 interface IUseListUtil<T> {

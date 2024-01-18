@@ -1,25 +1,25 @@
-import { cloneElement, useEffect } from 'react';
-import useSetState from '@darwish-hooks/use-set-state';
+import { cloneElement, useEffect } from "react";
+import useSetState from "@darwish/use-set-state";
 
 const usePress = (
   pressedView: JSX.Element | (() => JSX.Element),
   callback: () => void
 ) => {
   const element =
-    typeof pressedView === 'function' ? pressedView() : pressedView;
+    typeof pressedView === "function" ? pressedView() : pressedView;
   const [times, setTimes] = useSetState({
     startTime: -1,
     spendTime: -1,
   });
   const onMouseDown = () => {
-    if (element.props && 'onMouseDown' in element.props) {
+    if (element.props && "onMouseDown" in element.props) {
       element.props.onMouseEnter();
     }
     setTimes({ startTime: new Date().getTime(), spendTime: 0 });
   };
 
   const onMouseUp = () => {
-    if (element.props && 'onMouseUp' in element.props) {
+    if (element.props && "onMouseUp" in element.props) {
       element.props.onMouseLeave();
     }
     setTimes({
@@ -33,7 +33,7 @@ const usePress = (
     }
   }, [times.spendTime]);
   const trigger = () => {
-    console.log('ON PRESS');
+    console.log("ON PRESS");
   };
   return () =>
     cloneElement(element, {

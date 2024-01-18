@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-press",
+  "name": "@darwish/use-press",
   "version": "0.0.0",
   "description": "",
   "main": "./lib/index.js",
@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish-hooks/use-set-state": "workspace:*"
+    "@darwish/use-set-state": "workspace:*"
   },
   "keywords": [
     "use-press",

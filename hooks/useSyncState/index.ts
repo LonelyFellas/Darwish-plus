@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import useDisplayDevError from '@darwish-hooks/use-display-dev-error';
+import { useMemo, useState } from "react";
+import useDisplayDevError from "@darwish/use-display-dev-error";
 const useSyncState = <T extends object>(initialValue: T) => {
   const [state, setState] = useState(initialValue);
   const dispatchError = useDisplayDevError();

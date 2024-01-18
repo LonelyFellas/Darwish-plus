@@ -1,4 +1,4 @@
-# @darwish-hooks/use-mount
+# @darwish/use-mount
 
 ## 0.0.3
 

@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-boolean",
+  "name": "@darwish/use-boolean",
   "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",
@@ -27,6 +27,6 @@
     "react",
     "darwish"
   ],
-  "author": "darwish-utils <28958230@qq.com>",
+  "author": "darwish <289582304@qq.com>",
   "license": "ISC"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-display-dev-error",
+  "name": "@darwish/use-display-dev-error",
   "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",

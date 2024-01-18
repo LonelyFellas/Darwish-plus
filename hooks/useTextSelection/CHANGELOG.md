@@ -1,4 +1,4 @@
-# @darwish-hooks/use-text-selection
+# @darwish/use-text-selection
 
 ## 0.0.3
 

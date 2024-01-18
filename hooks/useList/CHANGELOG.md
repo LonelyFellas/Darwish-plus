@@ -1,4 +1,4 @@
-# @darwish-hooks/use-list
+# @darwish/use-list
 
 ## 0.0.3
 

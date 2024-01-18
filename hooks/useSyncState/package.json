@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-sync-state",
+  "name": "@darwish/use-sync-state",
   "version": "0.0.0",
   "description": "",
   "main": "./lib/index.js",
@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish-hooks/use-display-dev-error": "workspace:*"
+    "@darwish/use-display-dev-error": "workspace:*"
   },
   "keywords": [
     "use-sync-state",

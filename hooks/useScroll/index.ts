@@ -1,9 +1,9 @@
-import useEventListener from '@darwish-hooks/use-event-listener';
-import useSetState from '@darwish-hooks/use-set-state';
+import useEventListener from "@darwish/use-event-listener";
+import useSetState from "@darwish/use-set-state";
 
-type ScrollHTMLElementEventMap = HTMLElementEventMap['scroll'];
-interface OnScrollEvent extends Omit<ScrollHTMLElementEventMap, 'target'> {
-  target: Pick<ScrollHTMLElementEventMap, 'target'> & {
+type ScrollHTMLElementEventMap = HTMLElementEventMap["scroll"];
+interface OnScrollEvent extends Omit<ScrollHTMLElementEventMap, "target"> {
+  target: Pick<ScrollHTMLElementEventMap, "target"> & {
     scrollLeft: number;
     scrollTop: number;
   };
@@ -24,7 +24,7 @@ const useScroll = (ref: React.MutableRefObject<HTMLDivElement>) => {
       });
     }
   };
-  useEventListener(ref, 'scroll', onScroll as any);
+  useEventListener(ref, "scroll", onScroll as any);
   return [page, 3];
 };
 export default useScroll;

@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-hover",
+  "name": "@darwish/use-hover",
   "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",

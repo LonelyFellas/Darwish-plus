@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-unmount",
+  "name": "@darwish/use-unmount",
   "version": "0.0.4",
   "description": "",
   "main": "./lib/index.js",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@darwish-utils/is": "workspace:*",
-    "@darwish-hooks/use-latest": "workspace:*"
+    "@darwish/use-latest": "workspace:*"
   },
   "keywords": [
     "use-unmount",

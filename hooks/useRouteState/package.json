@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-route-state",
+  "name": "@darwish/use-route-state",
   "version": "0.0.0",
   "description": "",
   "main": "./lib/index.js",

@@ -1,4 +1,4 @@
-# @darwish-hooks/use-event-listener
+# @darwish/use-event-listener
 
 ## 0.0.3
 

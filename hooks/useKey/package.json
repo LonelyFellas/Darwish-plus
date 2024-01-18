@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-key",
+  "name": "@darwish/use-key",
   "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-hooks/use-text-selection",
+  "name": "@darwish/use-text-selection",
   "version": "0.0.3",
   "description": "",
   "main": "./lib/index.js",

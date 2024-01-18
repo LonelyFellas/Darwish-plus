@@ -1,19 +1,19 @@
-# @darwish-hooks/use-scroll
+# @darwish/use-scroll
 
 ## 0.0.3
 
 ### Patch Changes
 
-- @darwish-hooks/use-event-listener@0.0.3
+- @darwish/use-event-listener@0.0.3
 
 ## 0.0.2
 
 ### Patch Changes
 
-- @darwish-hooks/use-event-listener@0.0.2
+- @darwish/use-event-listener@0.0.2
 
 ## 0.0.1
 
 ### Patch Changes
 
-- @darwish-hooks/use-event-listener@0.0.1
+- @darwish/use-event-listener@0.0.1
