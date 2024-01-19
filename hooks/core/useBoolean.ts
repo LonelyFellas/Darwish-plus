@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 export type UseBooleanFunc = (
-  settingValue: boolean | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  settingValue: boolean | React.MouseEvent<HTMLButtonElement, MouseEvent>,
 ) => void;
 /**
  *
@@ -8,15 +8,15 @@ export type UseBooleanFunc = (
  * @returns [boolean, (settingValue: boolean) => void] -> Array
  */
 const useBoolean: (defaultValue: boolean) => [boolean, UseBooleanFunc] = (
-  defaultValue: boolean
+  defaultValue: boolean,
 ) => {
   const [state, setState] = useState(defaultValue);
 
   const toggle = (
-    settingValue: boolean | React.MouseEvent<HTMLButtonElement, MouseEvent>
+    settingValue: boolean | React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     setState((prev) =>
-      typeof settingValue === "boolean" ? settingValue : !prev
+      typeof settingValue === 'boolean' ? settingValue : !prev,
     );
   };
   return [state, toggle];
