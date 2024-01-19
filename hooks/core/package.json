@@ -1,6 +1,6 @@
 {
-  "name": "@darwish-utils/obj",
-  "version": "1.0.0",
+  "name": "@darwish/hooks-core",
+  "version": "0.0.2",
   "description": "",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
@@ -8,7 +8,8 @@
   "typings": "./lib/index.d.ts",
   "files": [
     "esm",
-    "lib"
+    "lib",
+    "tsconfig.json"
   ],
   "publishConfig": {
     "access": "public"
@@ -22,15 +23,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish-utils/clone-deep": "workspace:*",
-    "@darwish/utils-is": "workspace:*"
+    "@darwish/types": "workspace:*",
+    "@darwish/utils-is": "workspace:*",
+    "immer": "^10.0.2",
+    "js-cookie": "^3.0.5"
   },
   "keywords": [
-    "object",
+    "use-default",
     "hooks",
     "react",
     "darwish"
   ],
   "author": "darwish-utils <28958230@qq.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
+    "@types/node": "^20.7.0"
+  }
 }

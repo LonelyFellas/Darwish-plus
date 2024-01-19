@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish-utils/is": "workspace:*",
+    "@darwish/utils-is": "workspace:*",
     "@darwish/use-update": "workspace:*"
   },
   "keywords": [

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { isFunction } from "../utils/is/isTypings";
+import { isFunction } from "@darwish/utils-is";
 const useDefault = <T>(defaultVal: T, initialVal: T) => {
   const [state, setState] = useState(initialVal);
 

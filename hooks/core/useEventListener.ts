@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import isBrowser from '../utils/is/isBrowser';
+import { useEffect } from "react";
+import { isBrowser } from "@darwish/utils-is";
 /**
  *
  * @param name 111
@@ -9,12 +9,12 @@ import isBrowser from '../utils/is/isBrowser';
  */
 export default function useEventListener<
   K extends keyof HTMLElementEventMap,
-  U extends Darwish.ElementRef<any>,
+  U extends Darwish.ElementRef<any>
 >(
   name: React.RefObject<U>,
   event: K,
   callback: (this: U, ev: HTMLElementEventMap[K]) => any,
-  options?: boolean | AddEventListenerOptions,
+  options?: boolean | AddEventListenerOptions
 ): void;
 
 /**
@@ -28,20 +28,20 @@ export default function useEventListener<K extends keyof WindowEventMap>(
   name: Window,
   event: K,
   callback: (this: Window, ev: WindowEventMap[K]) => any,
-  option?: boolean | AddEventListenerOptions,
+  option?: boolean | AddEventListenerOptions
 ): void;
 
 export default function useEventListener<
   K extends keyof WindowEventMap & keyof HTMLElementEventMap,
-  U extends Darwish.ElementRef<Darwish.ElementLabel>,
+  U extends Darwish.ElementRef<Darwish.ElementLabel>
 >(
   name: Window | React.RefObject<U>,
   event: K,
   callback: (
     this: Window,
-    ev: WindowEventMap[K],
+    ev: WindowEventMap[K]
   ) => any | ((this: U, ev: HTMLElementEventMap[K]) => any),
-  options?: boolean | AddEventListenerOptions,
+  options?: boolean | AddEventListenerOptions
 ): void {
   useEffect(() => {
     if (!isBrowser) return;
@@ -49,10 +49,10 @@ export default function useEventListener<
     if (name === window) {
       name.addEventListener(event, callback, options);
       return () => name.removeEventListener(event, callback, options);
-    } else if (name && 'current' in name && name.current) {
+    } else if (name && "current" in name && name.current) {
       name.current.addEventListener(event, callback as any, options);
       return () => {
-        if (name && 'current' in name && name.current) {
+        if (name && "current" in name && name.current) {
           name.current.removeEventListener(event, callback as any, options);
         }
       };

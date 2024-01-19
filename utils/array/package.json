@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@darwish-utils/clone-deep": "workspace:*",
-    "@darwish-utils/is": "workspace:*"
+    "@darwish/utils-is": "workspace:*"
   },
   "keywords": [
     "array",

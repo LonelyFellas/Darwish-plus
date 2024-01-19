@@ -48,18 +48,18 @@ importers:
 
   docs:
     dependencies:
-      '@darwish-hooks/use-boolean':
-        specifier: workspace:*
-        version: link:../hooks/useBoolean
-      '@darwish-hooks/use-scroll':
-        specifier: workspace:*
-        version: link:../hooks/useScroll
       '@darwish-utils/deep-equal':
         specifier: workspace:*
         version: link:../utils/deepEqual
       '@darwish/types':
         specifier: workspace:*
         version: link:../types
+      '@darwish/use-boolean':
+        specifier: workspace:*
+        version: link:../hooks/useBoolean
+      '@darwish/use-scroll':
+        specifier: workspace:*
+        version: link:../hooks/useScroll
     devDependencies:
       '@vitejs/plugin-react':
         specifier: ^4.0.3
@@ -68,7 +68,27 @@ importers:
         specifier: ^4.4.5
         version: 4.5.0(@types/node@20.8.10)
 
-  hooks: {}
+  hooks/core:
+    dependencies:
+      '@darwish/types':
+        specifier: workspace:*
+        version: link:../../types
+      '@darwish/utils-is':
+        specifier: workspace:*
+        version: link:../../utils/is
+      immer:
+        specifier: ^10.0.2
+        version: 10.0.2
+      js-cookie:
+        specifier: ^3.0.5
+        version: 3.0.5
+    devDependencies:
+      '@types/js-cookie':
+        specifier: ^3.0.3
+        version: 3.0.3
+      '@types/node':
+        specifier: ^20.7.0
+        version: 20.8.10
 
   hooks/useBoolean: {}
 
@@ -84,7 +104,7 @@ importers:
 
   hooks/useDefault:
     dependencies:
-      '@darwish-utils/is':
+      '@darwish/utils-is':
         specifier: workspace:*
         version: link:../../utils/is
 
@@ -92,7 +112,7 @@ importers:
 
   hooks/useEventListener:
     dependencies:
-      '@darwish-utils/is':
+      '@darwish/utils-is':
         specifier: workspace:*
         version: link:../../utils/is
 
@@ -118,28 +138,28 @@ importers:
 
   hooks/useList:
     dependencies:
-      '@darwish-hooks/use-update':
+      '@darwish/use-update':
         specifier: workspace:*
         version: link:../useUpdate
-      '@darwish-utils/is':
+      '@darwish/utils-is':
         specifier: workspace:*
         version: link:../../utils/is
 
   hooks/useMount:
     dependencies:
-      '@darwish-utils/is':
+      '@darwish/utils-is':
         specifier: workspace:*
         version: link:../../utils/is
 
   hooks/usePress:
     dependencies:
-      '@darwish-hooks/use-set-state':
+      '@darwish/use-set-state':
         specifier: workspace:*
         version: link:../useSetState
 
   hooks/usePrevious:
     dependencies:
-      '@darwish-hooks/use-update-effect':
+      '@darwish/use-update-effect':
         specifier: workspace:*
         version: link:../useUpdateEffect
 
@@ -157,16 +177,16 @@ importers:
 
   hooks/useScroll:
     dependencies:
-      '@darwish-hooks/use-event-listener':
+      '@darwish/use-event-listener':
         specifier: workspace:*
         version: link:../useEventListener
-      '@darwish-hooks/use-set-state':
+      '@darwish/use-set-state':
         specifier: workspace:*
         version: link:../useSetState
 
   hooks/useSet:
     dependencies:
-      '@darwish-utils/is':
+      '@darwish/utils-is':
         specifier: workspace:*
         version: link:../../utils/is
 
@@ -176,33 +196,24 @@ importers:
 
   hooks/useSyncState:
     dependencies:
-      '@darwish-hooks/use-display-dev-error':
+      '@darwish/use-display-dev-error':
         specifier: workspace:*
         version: link:../useDisplayDevError
 
   hooks/useTextSelection:
     dependencies:
-      '@darwish-utils/is':
+      '@darwish/utils-is':
         specifier: workspace:*
         version: link:../../utils/is
 
   hooks/useToggle: {}
 
-  hooks/useUnMount:
-    dependencies:
-      '@darwish-hooks/use-latest':
-        specifier: workspace:*
-        version: link:../useLatest
-      '@darwish-utils/is':
-        specifier: workspace:*
-        version: link:../../utils/is
-
   hooks/useUnmount:
     dependencies:
-      '@darwish-hooks/use-latest':
+      '@darwish/use-latest':
         specifier: workspace:*
         version: link:../useLatest
-      '@darwish-utils/is':
+      '@darwish/utils-is':
         specifier: workspace:*
         version: link:../../utils/is
 
@@ -210,7 +221,7 @@ importers:
 
   hooks/useUpdateEffect:
     dependencies:
-      '@darwish-hooks/use-first-mount-state':
+      '@darwish/use-first-mount-state':
         specifier: workspace:*
         version: link:../useFirstMountState
 
@@ -223,7 +234,7 @@ importers:
       '@darwish-utils/clone-deep':
         specifier: workspace:*
         version: link:../cloneDeep
-      '@darwish-utils/is':
+      '@darwish/utils-is':
         specifier: workspace:*
         version: link:../is
 
@@ -231,12 +242,12 @@ importers:
 
   utils/deepEqual:
     dependencies:
-      '@darwish-utils/is':
-        specifier: workspace:*
-        version: link:../is
       '@darwish-utils/others':
         specifier: workspace:*
         version: link:../others
+      '@darwish/utils-is':
+        specifier: workspace:*
+        version: link:../is
 
   utils/dlv: {}
 
@@ -247,16 +258,7 @@ importers:
       '@darwish-utils/clone-deep':
         specifier: workspace:*
         version: link:../cloneDeep
-      '@darwish-utils/is':
-        specifier: workspace:*
-        version: link:../is
-
-  utils/object:
-    dependencies:
-      '@darwish-utils/clone-deep':
-        specifier: workspace:*
-        version: link:../cloneDeep
-      '@darwish-utils/is':
+      '@darwish/utils-is':
         specifier: workspace:*
         version: link:../is
 
