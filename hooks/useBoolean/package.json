@@ -1,6 +1,6 @@
 {
   "name": "@darwish/use-boolean",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
@@ -8,7 +8,8 @@
   "typings": "./lib/index.d.ts",
   "files": [
     "esm",
-    "lib"
+    "lib",
+    "tsconfig.json"
   ],
   "publishConfig": {
     "access": "public"

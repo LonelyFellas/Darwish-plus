@@ -1,9 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 
 /**
- *
- * @param errorText 默认错误信息
- * @returns 返回出发错误信息的函数，⚠️注意：错误信息只会在开发环境触发
+ * @description A hook to display error in development environment
+ * @param errorText error text
+ * @returns dispatchError -> Function
+ * @example
+ * const dispatchError = useDisplayDevError('error text');
+ * dispatchError();
+ * const dispatchError = useDisplayDevError();
+ * dispatchError('new error text');
  */
 const useDisplayDevError: <T>(errorText?: T) => (err?: T) => void = (
   errorText,

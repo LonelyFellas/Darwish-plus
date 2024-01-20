@@ -1,11 +1,19 @@
-import { useEffect } from 'react';
+import React from 'react';
 
 /**
- * TODO 文档缺失
- * @description 让useEffect只执行一次
- * @param effect 回调函数
+ * @module hooks/core/useEffectOnce
+ * @see
+ * @param {React.EffectCallback} effect 回调函数
+ * @returns {void}
+ * @example
+ * import useEffectOnce from 'hooks/core/useEffectOnce';
+ * useEffectOnce(() => {
+ *  console.log('useEffectOnce');
+ *  return () => {
+ *  console.log('useEffectOnce cleanup');
+ * };
  */
-function useEffectOnce(effect: React.EffectCallback) {
-  useEffect(effect, []);
+function useEffectOnce(effect: React.EffectCallback): void {
+  React.useEffect(effect, []);
 }
 export default useEffectOnce;

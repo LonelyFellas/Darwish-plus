@@ -1,5 +1,5 @@
 {
-  "name": "@darwish/use-cookie",
+  "name": "@darwish/use-effect-once",
   "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",
@@ -8,7 +8,8 @@
   "typings": "./lib/index.d.ts",
   "files": [
     "esm",
-    "lib"
+    "lib",
+    "tsconfig.json"
   ],
   "publishConfig": {
     "access": "public"
@@ -17,18 +18,11 @@
     "build:cjs": "tsc",
     "build:es": "tsc -m esNext --outDir esm",
     "build": "pnpm build:cjs && pnpm build:es",
-    "prepublish": "npm run build",
-    "publish": "npm publish",
+    "prepublish": "npm run build && pnpm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "@types/js-cookie": "^3.0.3"
-  },
-  "dependencies": {
-    "js-cookie": "^3.0.5"
-  },
   "keywords": [
-    "use-cookie",
+    "useEffectOnce",
     "hooks",
     "react",
     "darwish"

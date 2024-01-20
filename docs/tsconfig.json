@@ -19,7 +19,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "typeRoots": ["./node_modules/@darwish/types/global.d.ts"],
+    "types": ["@darwish/types"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

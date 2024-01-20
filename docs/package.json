@@ -10,10 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@darwish-utils/deep-equal": "workspace:*",
+    "@darwish/types": "workspace:*",
     "@darwish/use-boolean": "workspace:*",
     "@darwish/use-scroll": "workspace:*",
-    "@darwish-utils/deep-equal": "workspace:*",
-    "@darwish/types": "workspace:*"
+    "react-markdown": "^9.0.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.3",

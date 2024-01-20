@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { isBrowser } from "@darwish/utils-is";
+
 /**
  *
- * @param name 111
+ * @param name
  * @param event
  * @param callback
  * @param options

@@ -1,5 +1,15 @@
-import jsCookie from 'js-cookie';
 import { useCallback, useState } from 'react';
+import jsCookie from 'js-cookie';
+
+/**
+ * @description A hook to get, set and delete cookie
+ * @param cookieName cookie name
+ * @returns [cookieValue, updateCookie, deleteCookie] -> Array
+ * @example
+ * const [cookieValue, updateCookie, deleteCookie] = useCookie('cookieName');
+ * updateCookie('cookieValue');
+ * deleteCookie();
+ */
 export default function useCookie(cookieName: string) {
   const [cookieValue, setCookieValue] = useState(
     () => jsCookie.get(cookieName) || null,
