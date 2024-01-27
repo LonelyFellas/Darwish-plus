@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-utils/dlv",
+  "name": "@darwish/utils-dlv",
   "version": "1.0.0",
   "description": "",
   "main": "./lib/index.js",
@@ -17,9 +17,12 @@
     "build:cjs": "tsc",
     "build:es": "tsc -m esNext --outDir esm",
     "build": "pnpm build:cjs && pnpm build:es",
-    "prepublish": "npm run build",
-    "publish": "npm publish",
+    "prepublish": "npm run build & npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@darwish/utils-is": "workspace:*",
+    "@darwish/types": "workspace:*"
   },
   "keywords": [
     "dlv",
