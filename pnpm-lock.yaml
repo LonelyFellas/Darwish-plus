@@ -276,6 +276,12 @@ importers:
 
   utils/others: {}
 
+  utils/str-ts:
+    dependencies:
+      '@darwish/types':
+        specifier: workspace:*
+        version: link:../../types
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
