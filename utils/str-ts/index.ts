@@ -1,12 +1,4 @@
-import type {
-  CharAt,
-  Join,
-  Concat,
-  EndsWith,
-  Split,
-  Slice,
-} from "./index.type";
-
+/// <reference path="str-ts.d.ts" />
 export default class StrTS {
   /**
    * Returns the character at the specified index.
