@@ -48,14 +48,19 @@ export declare global {
     S extends number = 0,
     E extends number = T["length"],
     Temp1 extends any[] = [],
-    Temp2 extends string = ""
-  > = T extends `${infer F}${infer R}`
+    Temp2 extends any[] = [],
+    Temp3 extends string = ""
+  > = Math.IsNegative<S> extends true
+    ? Slice<T, 0, Math.Add<T["length"], S>>
+    : T extends `${infer F}${infer R}`
     ? Math.IsNonNegativeNum<S> extends true
       ? S extends Temp1["length"]
-        ? Slice<R, S, R, Temp1, `${Temp2}${F}`>
-        : Slice<R, S, E, [...Temp1, F], Temp2>
-      : Temp2
-    : Temp2;
+        ? E extends Temp2["length"]
+          ? Temp3
+          : Slice<R, S, E, Temp1, [...Temp2, F], `${Temp3}${F}`>
+        : Slice<R, S, E, [...Temp1, F], [...Temp2, F], Temp3>
+      : Temp3
+    : Temp3;
   /**
    * Splits a String object into an array of strings by separating the string into substrings, using a specified separator string to determine where to make each split.
    */
