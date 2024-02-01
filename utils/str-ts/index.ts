@@ -79,6 +79,6 @@ const testCharAt = StrTS.charAt("Darwish", 10);
 const testJoin = StrTS.join(["Darwish", "Yu", "Cat", "July"]);
 const testConcat = StrTS.concat("darwish", "yu", "cat", "july");
 const testEndsWith = StrTS.endsWith("darwishyu", "yu");
-const testSlice = StrTS.slice("Darwish Yu Cat July", 0, 6);
+const testSlice = StrTS.slice("Darwish Yu Cat July", 1);
 
 const testSplit = StrTS.split("Darwish Yu Cat ", "a");
