@@ -25,6 +25,23 @@ export declare global {
     > = Temp["length"] extends N ? Temp : Iteraor<N, [...Temp, Temp["length"]]>;
 
     /**
+     * @description 将一个字符串类型变成数组类型
+     */
+    type Split<
+      T extends string,
+      S extends string,
+      Temp extends any[] = []
+    > = T extends `${infer L}${S}${infer R}`
+      ? Split<R, S, [...Temp, L]>
+      : [...Temp, T];
+    /**
+     * @description 推断一个字符串和数组的长度
+     */
+    type Length<
+      T extends string | any[],
+      TempArr extends any[] = []
+    > = T extends any[] ? T["length"] : StrToArr<T>["length"];
+    /**
      * @description 讲一个字符串类型的数字变成变成 number 类型
      */
     type ToNumber<T> = T extends number
@@ -43,6 +60,9 @@ export declare global {
     type AnyFunc = (...args: any[]) => any;
 
     type ElementLabel = keyof JSX.IntrinsicElements;
+    /**
+     * @deprecated 请使用 `React.ElementRef` 代替
+     */
     type ElementRef<T extends ElementLabel> =
       JSX.IntrinsicElements[T] extends React.DetailedHTMLProps<
         React.HTMLAttributes<unknown>,

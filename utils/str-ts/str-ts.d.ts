@@ -40,6 +40,18 @@ export declare global {
   > extends `${infer R}${S}`
     ? true
     : false;
+
+  type SliceNormal<
+    T extends string,
+    E extends number = T["length"],
+    TempArr extends any[] = [],
+    TempStr extends string = ""
+  > = T extends `${infer F}${infer R}`
+    ? TempArr["length"] extends E
+      ? TempStr
+      : SliceNormal<R, E, [...TempArr, F], `${TempStr}${F}`>
+    : TempStr;
+  type test1 = ["3333", "2222"]["length"];
   /**
    * Returns a section of a string.
    */
@@ -48,19 +60,33 @@ export declare global {
     S extends number = 0,
     E extends number = T["length"],
     Temp1 extends any[] = [],
-    Temp2 extends any[] = [],
-    Temp3 extends string = ""
-  > = Math.IsNegative<S> extends true
-    ? Slice<T, 0, Math.Add<T["length"], S>>
-    : T extends `${infer F}${infer R}`
-    ? Math.IsNonNegativeNum<S> extends true
-      ? S extends Temp1["length"]
-        ? E extends Temp2["length"]
-          ? Temp3
-          : Slice<R, S, E, Temp1, [...Temp2, F], `${Temp3}${F}`>
-        : Slice<R, S, E, [...Temp1, F], [...Temp2, F], Temp3>
-      : Temp3
-    : Temp3;
+    Temp2 extends string = ""
+  > = T extends `${SliceNormal<T, S>}${infer R}${T extends `${SliceNormal<
+    T,
+    E
+  >}${infer RR}`
+    ? RR
+    : ""}`
+    ? R
+    : "";
+  // type Slice<
+  //   T extends string,
+  //   S extends number = 0,
+  //   E extends number = T["length"],
+  //   Temp1 extends any[] = [],
+  //   Temp2 extends any[] = [],
+  //   Temp3 extends string = ""
+  // > = Math.IsNegative<S> extends true
+  //   ? Slice<T, 0, Math.Add<T["length"], S>>
+  //   : T extends `${infer F}${infer R}`
+  //   ? Math.IsNonNegativeNum<S> extends true
+  //     ? S extends Temp1["length"]
+  //       ? E extends Temp2["length"]
+  //         ? Temp3
+  //         : Slice<R, S, E, Temp1, [...Temp2, F], `${Temp3}${F}`>
+  //       : Slice<R, S, E, [...Temp1, F], [...Temp2, F], Temp3>
+  //     : Temp3
+  //   : Temp3;
   /**
    * Splits a String object into an array of strings by separating the string into substrings, using a specified separator string to determine where to make each split.
    */
