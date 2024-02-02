@@ -1,3 +1,13 @@
+type SliceNormal<
+  T extends string,
+  E extends number = Darwish.Length<T>,
+  TempArr extends any[] = [],
+  TempStr extends string = ""
+> = T extends `${infer F}${infer R}`
+  ? TempArr["length"] extends E
+    ? TempStr
+    : SliceNormal<R, E, [...TempArr, F], `${TempStr}${F}`>
+  : TempStr;
 export declare global {
   type IsArray<A extends any[]> = A extends [infer F, ...infer R]
     ? true
@@ -33,60 +43,36 @@ export declare global {
    * Returns true if the sequence of elements of searchString converted to a String is the same as the corresponding elements of this object (converted to a String) starting atendPosition – length(this).
    * Otherwise returns false.
    */
-  type EndsWith<T extends string, S extends string, P extends number> = Slice<
-    T,
-    0,
-    P
-  > extends `${infer R}${S}`
+  type EndsWith<
+    T extends string,
+    S extends string,
+    P extends number = 0
+  > = Slice<T, 0, Math.Subtract<Darwish.Length<T>, P>> extends `${infer R}${S}`
     ? true
     : false;
 
-  type SliceNormal<
-    T extends string,
-    E extends number = T["length"],
-    TempArr extends any[] = [],
-    TempStr extends string = ""
-  > = T extends `${infer F}${infer R}`
-    ? TempArr["length"] extends E
-      ? TempStr
-      : SliceNormal<R, E, [...TempArr, F], `${TempStr}${F}`>
-    : TempStr;
-  type test1 = ["3333", "2222"]["length"];
   /**
    * Returns a section of a string.
    */
   type Slice<
     T extends string,
     S extends number = 0,
-    E extends number = T["length"],
+    E extends number = Darwish.Length<T>,
     Temp1 extends any[] = [],
     Temp2 extends string = ""
-  > = T extends `${SliceNormal<T, S>}${infer R}${T extends `${SliceNormal<
-    T,
-    E
-  >}${infer RR}`
-    ? RR
-    : ""}`
+  > = Math.IsNegative<S> extends true
+    ? Slice<T, Math.Add<Darwish.Length<T>, S>, E>
+    : Math.IsNegative<E> extends true
+    ? Slice<T, S, Math.Add<Darwish.Length<T>, E>>
+    : T extends `${SliceNormal<T, S>}${infer R}${T extends `${SliceNormal<
+        T,
+        E
+      >}${infer RR}`
+        ? RR
+        : ""}`
     ? R
     : "";
-  // type Slice<
-  //   T extends string,
-  //   S extends number = 0,
-  //   E extends number = T["length"],
-  //   Temp1 extends any[] = [],
-  //   Temp2 extends any[] = [],
-  //   Temp3 extends string = ""
-  // > = Math.IsNegative<S> extends true
-  //   ? Slice<T, 0, Math.Add<T["length"], S>>
-  //   : T extends `${infer F}${infer R}`
-  //   ? Math.IsNonNegativeNum<S> extends true
-  //     ? S extends Temp1["length"]
-  //       ? E extends Temp2["length"]
-  //         ? Temp3
-  //         : Slice<R, S, E, Temp1, [...Temp2, F], `${Temp3}${F}`>
-  //       : Slice<R, S, E, [...Temp1, F], [...Temp2, F], Temp3>
-  //     : Temp3
-  //   : Temp3;
+
   /**
    * Splits a String object into an array of strings by separating the string into substrings, using a specified separator string to determine where to make each split.
    */
@@ -98,11 +84,3 @@ export declare global {
     ? Split<R, S, [...Temp, L]>
     : [...Temp, T];
 }
-// T extends `${infer F}${infer R}`
-//   ? Temp1["length"] extends S
-//     ? Temp2["length"] extends E
-//       ? Join<Temp2>
-//       : Slice<R, S, E, Temp1, [...Temp2, F]>
-//     : Slice<R, S, E, [...Temp1, F], Temp2>
-//   : "";
-// type B = Slice<"darwish", 0, 6>;

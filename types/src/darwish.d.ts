@@ -27,13 +27,12 @@ export declare global {
     /**
      * @description 将一个字符串类型变成数组类型
      */
-    type Split<
+    type StrToArr<
       T extends string,
-      S extends string,
-      Temp extends any[] = []
-    > = T extends `${infer L}${S}${infer R}`
-      ? Split<R, S, [...Temp, L]>
-      : [...Temp, T];
+      TempArr extends any[] = []
+    > = T extends `${infer F}${infer R}`
+      ? StrToArr<R, [...TempArr, F]>
+      : TempArr;
     /**
      * @description 推断一个字符串和数组的长度
      */
