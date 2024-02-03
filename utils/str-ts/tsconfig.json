@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",                      
-    "lib": ["DOM","DOM.Iterable", "ES2020"],
+    "lib": ["DOM","DOM.Iterable", "ES2020", "ES2021"],
     "module": "CommonJS",                      
     "rootDir": "./",            
     "baseUrl": ".",

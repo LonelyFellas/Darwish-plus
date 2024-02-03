@@ -64,10 +64,14 @@ export declare global {
     ? true
     : false;
   /**
-   * Returns the length of a String object. Gets or sets the length of the array. This is a number one higher than the highest index in the array.Returns a section of a string.
+   * Returns the length of a String object. Gets or sets the length of the array.
+   * This is a number one higher than the highest index in the array.Returns a section of a string.
    */
   type Length<T extends string> = Darwish.Length<T>;
-
+  /**
+   * Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.
+   * The padding is applied from the end (right) of the current string.
+   */
   type PadEnd<
     T extends string,
     L extends number = Length<T>,
@@ -80,6 +84,10 @@ export declare global {
         0,
         Math.Subtract<L, Len>
       >}`;
+  /**
+   * Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.
+   * The padding is applied from the start (left) of the current string.
+   */
   type PadStart<
     T extends string,
     L extends number = Length<T>,
@@ -92,9 +100,37 @@ export declare global {
         0,
         Math.Subtract<L, Len>
       >}${T}`;
+  /**
+   * Returns a String value that is made from count copies appended together.
+   * If count is 0, the empty string is returned.
+   */
   type Repeat<T extends string, N extends number> = N extends 0
     ? ""
     : `${T}${Repeat<T, Math.Subtract<N, 1>>}`;
+  /**
+   * Replaces text in a string, using a regular expression or search string.
+   */
+  type Replace<
+    T extends string,
+    S extends string = "",
+    R extends string = ""
+  > = T extends `${infer L}${S}${infer RR}`
+    ? S extends ""
+      ? T
+      : `${L}${R}${RR}`
+    : T;
+  /**
+   * Replace all instances of a substring in a string, using a regular expression or search string.
+   */
+  type ReplaceAll<
+    T extends string,
+    S extends string = "",
+    R extends string = ""
+  > = T extends `${infer L}${S}${infer RR}`
+    ? S extends ""
+      ? T
+      : `${L}${R}${ReplaceAll<RR, S, R>}`
+    : T;
   /**
    * Returns a section of a string.
    */

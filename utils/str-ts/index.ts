@@ -85,6 +85,16 @@ export default class StrTS {
   ) {
     return str.padEnd(maxLength, fillString) as PadEnd<T, L, S>;
   }
+  /**
+   * Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.
+   * The padding is applied from the start (left) of the current string.
+   * @param str The string to pad.
+   * @param maxLength The length of the resulting string once the current string has been padded.
+   * If this parameter is smaller than the current string's length, the current string will be returned as it is.
+   * @param fillString The string to pad the current string with. If this string is too long, it will be truncated and the left-most part will be applied.
+   * The default value for this parameter is " " (U+0020).
+   * @returns
+   */
   static padStart<T extends string, L extends number, S extends string>(
     str: T,
     maxLength: L,
@@ -100,6 +110,36 @@ export default class StrTS {
    */
   static repeat<T extends string, N extends number>(str: T, count: N) {
     return str.repeat(count) as Repeat<T, N>;
+  }
+  /**
+   * Replaces text in a string, using a regular expression or search string.
+   * @param str The string to be searched.
+   * @param searchValue A string to search for.
+   * @param replaceValue A string containing the text to replace.
+   * When the `searchValue` is a RegExp, all matches are replaced if the g flag is set (or only those matches at the beginning, if the `y` flag is also present).
+   * Otherwise, only the first match of `searchValue` is replaced.
+   * @returns A new string with some or all matches of a pattern replaced by a replacement.
+   */
+  static replace<T extends string, S extends string, R extends string>(
+    str: T,
+    searchValue: S,
+    replaceValue: R
+  ) {
+    return str.replace(searchValue, replaceValue) as Replace<T, S, R>;
+  }
+  /**
+   * Replace all instances of a substring in a string, using a regular expression or search string.
+   * @param str The string to be searched.
+   * @param searchValue A string to search for.
+   * @param replaceValue A string containing the text to replace for every successful match of searchValue in this string.
+   * @returns A new string with some or all matches of a pattern replaced by a replacement.
+   */
+  static replaceAll<T extends string, S extends string, R extends string>(
+    str: T,
+    searchValue: S,
+    replaceValue: R
+  ) {
+    return str.replaceAll(searchValue, replaceValue) as ReplaceAll<T, S, R>;
   }
   /**
    * Returns a section of a string.
