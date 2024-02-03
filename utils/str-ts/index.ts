@@ -46,6 +46,36 @@ export default class StrTS {
     return text.endsWith(search, position) as EndsWith<T, S, P>;
   }
   /**
+   * Returns true if searchString appears as a substring of the result of converting this object to a String, at one or more positions that are greater than or equal to position; otherwise, returns false.
+   * @param str string to search in.
+   * @param search string to search for.
+   * @param position  If position is undefined, 0 is assumed, so as to search all of the String.
+   * @returns true if the search string is found anywhere within the given string; otherwise, false if not.
+   */
+  static includes<T extends string, S extends string, P extends number>(
+    str: T,
+    search: S,
+    position = 0
+  ) {
+    return str.includes(search) as Includes<T, S, P>;
+  }
+
+  /**
+   * Returns the length of a String object. Gets or sets the length of the array. This is a number one higher than the highest index in the array.Returns a section of a string.
+   * @param str The string to extract from.
+   * @returns The length of the given string.
+   */
+  static len<T extends string>(str: T) {
+    return str.length as Length<T>;
+  }
+  static padEnd<T extends string, L extends number, S extends string>(
+    str: T,
+    length: L,
+    fillStr: S
+  ) {
+    return str.padEnd(length, fillStr) as PadEnd<T, L, S>;
+  }
+  /**
    * Returns a section of a string.
    * @param str The string to extract from.
    * @param start The index to the beginning of the specified portion of stringObj.
@@ -75,4 +105,3 @@ export default class StrTS {
     return str.split(separator) as Split<T, S>;
   }
 }
-

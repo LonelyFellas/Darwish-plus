@@ -50,7 +50,23 @@ export declare global {
   > = Slice<T, 0, Math.Subtract<Darwish.Length<T>, P>> extends `${infer R}${S}`
     ? true
     : false;
-
+  /**
+   * Returns true if searchString appears as a substring of the result of converting this object to a String, at one or more positions that are greater than or equal to position; otherwise, returns false.
+   */
+  type Includes<
+    T extends string,
+    S extends string,
+    P extends number = 0,
+    TempStr extends string = Slice<T, P>
+  > = TempStr extends `${infer L}${S}${infer R}`
+    ? true
+    : TempStr extends `${S}`
+    ? true
+    : false;
+  /**
+   * Returns the length of a String object. Gets or sets the length of the array. This is a number one higher than the highest index in the array.Returns a section of a string.
+   */
+  type Length<T extends string> = Darwish.Length<T>;
   /**
    * Returns a section of a string.
    */
@@ -72,7 +88,6 @@ export declare global {
         : ""}`
     ? R
     : "";
-
   /**
    * Splits a String object into an array of strings by separating the string into substrings, using a specified separator string to determine where to make each split.
    */

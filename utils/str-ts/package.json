@@ -1,6 +1,6 @@
 {
   "name": "@darwish/str-ts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./lib/index.js",
   "module": "./esm/index.js",

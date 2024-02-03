@@ -41,6 +41,26 @@ export declare global {
       TempArr extends any[] = []
     > = T extends any[] ? T["length"] : StrToArr<T>["length"];
     /**
+     * @description IsBlanks 判断一个类型是否为空
+     */
+    type IsBlanks<T = ""> = T extends string
+      ? T extends ""
+        ? true
+        : false
+      : T extends any[]
+      ? T["length"] extends 0
+        ? true
+        : false
+      : T extends Record<PropertyKey, any>
+      ? keyof T extends never
+        ? true
+        : false
+      : T extends null
+      ? true
+      : T extends undefined
+      ? true
+      : false;
+    /**
      * @description 讲一个字符串类型的数字变成变成 number 类型
      */
     type ToNumber<T> = T extends number
