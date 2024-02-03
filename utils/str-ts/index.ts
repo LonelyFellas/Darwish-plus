@@ -68,12 +68,31 @@ export default class StrTS {
   static len<T extends string>(str: T) {
     return str.length as Length<T>;
   }
+  /**
+   * Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.
+   * The padding is applied from the end (right) of the current string.
+   * @param str The string to pad.
+   * @param maxLength The length of the resulting string once the current string has been padded.
+   * If this parameter is smaller than the current string's length, the current string will be returned as it is.
+   * @param fillString The string to pad the current string with.
+   * If this string is too long, it will be truncated and the left-most part will be applied. The default value for this parameter is " " (U+0020).
+   * @returns A new string of the given length with the current string padded at the end with the given string.
+   */
   static padEnd<T extends string, L extends number, S extends string>(
     str: T,
-    length: L,
-    fillStr: S
+    maxLength: L,
+    fillString: S
   ) {
-    return str.padEnd(length, fillStr) as PadEnd<T, L, S>;
+    return str.padEnd(maxLength, fillString) as PadEnd<T, L, S>;
+  }
+  /**
+   * Returns a String value that is made from count copies appended together. If count is 0, the empty string is returned.
+   * @param str The string to be repeated.
+   * @param count The number of times the original string value should be repeated in the new string value.
+   * @returns A new string containing the given string repeated the specified number of times.
+   */
+  static repeat<T extends string, N extends number>(str: T, count: N) {
+    return str.repeat(count) as Repeat<T, N>;
   }
   /**
    * Returns a section of a string.

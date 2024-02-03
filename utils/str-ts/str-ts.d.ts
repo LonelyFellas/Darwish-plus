@@ -1,6 +1,6 @@
 type SliceNormal<
   T extends string,
-  E extends number = Darwish.Length<T>,
+  E extends number = Length<T>,
   TempArr extends any[] = [],
   TempStr extends string = ""
 > = T extends `${infer F}${infer R}`
@@ -67,19 +67,35 @@ export declare global {
    * Returns the length of a String object. Gets or sets the length of the array. This is a number one higher than the highest index in the array.Returns a section of a string.
    */
   type Length<T extends string> = Darwish.Length<T>;
+
+  type PadEnd<
+    T extends string,
+    L extends number = Length<T>,
+    S extends string = " ",
+    Len extends number = Length<T>
+  > = Math.TwoNumberGreater<L, Len> extends Len
+    ? T
+    : `${T}${Slice<
+        Repeat<S, Math.Subtract<L, Len>>,
+        0,
+        Math.Subtract<L, Len>
+      >}`;
+  type Repeat<T extends string, N extends number> = N extends 0
+    ? ""
+    : `${T}${Repeat<T, Math.Subtract<N, 1>>}`;
   /**
    * Returns a section of a string.
    */
   type Slice<
     T extends string,
     S extends number = 0,
-    E extends number = Darwish.Length<T>,
+    E extends number = Length<T>,
     Temp1 extends any[] = [],
     Temp2 extends string = ""
   > = Math.IsNegative<S> extends true
-    ? Slice<T, Math.Add<Darwish.Length<T>, S>, E>
+    ? Slice<T, Math.Add<Length<T>, S>, E>
     : Math.IsNegative<E> extends true
-    ? Slice<T, S, Math.Add<Darwish.Length<T>, E>>
+    ? Slice<T, S, Math.Add<Length<T>, E>>
     : T extends `${SliceNormal<T, S>}${infer R}${T extends `${SliceNormal<
         T,
         E
