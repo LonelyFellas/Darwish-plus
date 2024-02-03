@@ -85,6 +85,13 @@ export default class StrTS {
   ) {
     return str.padEnd(maxLength, fillString) as PadEnd<T, L, S>;
   }
+  static padStart<T extends string, L extends number, S extends string>(
+    str: T,
+    maxLength: L,
+    fillString: S
+  ) {
+    return str.padStart(maxLength, fillString) as PadStart<T, L, S>;
+  }
   /**
    * Returns a String value that is made from count copies appended together. If count is 0, the empty string is returned.
    * @param str The string to be repeated.

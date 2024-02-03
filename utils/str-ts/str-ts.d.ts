@@ -80,6 +80,18 @@ export declare global {
         0,
         Math.Subtract<L, Len>
       >}`;
+  type PadStart<
+    T extends string,
+    L extends number = Length<T>,
+    S extends string = " ",
+    Len extends number = Length<T>
+  > = Math.TwoNumberGreater<L, Len> extends Len
+    ? T
+    : `${Slice<
+        Repeat<S, Math.Subtract<L, Len>>,
+        0,
+        Math.Subtract<L, Len>
+      >}${T}`;
   type Repeat<T extends string, N extends number> = N extends 0
     ? ""
     : `${T}${Repeat<T, Math.Subtract<N, 1>>}`;
