@@ -158,8 +158,19 @@ export declare global {
   type Split<
     T extends string,
     S extends string,
-    Temp extends any[] = []
+    TempArr extends any[] = [],
+    TempStr extends "" = "",
+    TempBool extends boolean = false
   > = T extends `${infer L}${S}${infer R}`
-    ? Split<R, S, [...Temp, L]>
-    : [...Temp, T];
+    ? Split<R, S, [...TempArr, L], R, true>
+    : TempBool extends false
+    ? [T]
+    : S extends ""
+    ? TempArr
+    : [...TempArr, TempStr];
+  type StartsWith<
+    T extends string,
+    S extends string,
+    P extends number = 0
+  > = Slice<T, P> extends `${S}${inferR}` ? true : false;
 }

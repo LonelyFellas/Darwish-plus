@@ -170,4 +170,9 @@ export default class StrTS {
   static split<T extends string, S extends string>(str: T, separator: S) {
     return str.split(separator) as Split<T, S>;
   }
+  static startWith<T extends string, S extends string = "">(
+    text: T,
+    search: S,
+    position = 0
+  ) {}
 }
