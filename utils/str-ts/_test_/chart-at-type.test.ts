@@ -7,6 +7,3 @@ namespace TypeTests {
   // TODO: index greater than Length<T>
   type test5 = Expect<Equal<CharAt<"some nice string", 100>, "">>;
 }
-
-type a = CharAt<string, 5>;
-type c = Uppercase<string>;

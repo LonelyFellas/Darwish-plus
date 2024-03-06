@@ -8,6 +8,12 @@ type SliceNormal<
     ? TempStr
     : SliceNormal<R, E, [...TempArr, F], `${TempStr}${F}`>
   : TempStr;
+
+type Iill<T, P, Flase, True = P> = T extends P ? True : False;
+type IillStrict<T, P, False, True = P> = Darwish.Equal<T, P> extends true
+  ? True
+  : False;
+
 export declare global {
   type IsArray<A extends any[]> = A extends [infer F, ...infer R]
     ? true
@@ -18,12 +24,20 @@ export declare global {
   type CharAt<
     T extends string,
     P extends number,
-    Temp extends string[] = []
+    TempArr extends string[] = [],
+    TempLen extends number = Darwish.Length<T>
   > = T extends `${infer F}${infer R}`
-    ? Temp["length"] extends P
-      ? F
-      : CharAt<R, P, [...Temp, F]>
-    : never;
+    ? IillStrict<
+        P,
+        number,
+        TempArr["length"] extends P
+          ? F
+          : Math.TwoNumberGreater<P, TempLen> extends P
+          ? ""
+          : CharAt<R, P, [...TempArr, F]>,
+        string
+      >
+    : Iill<T, string, never>;
   /**
    * Adds all the elements of an array into a string, separated by the specified separator string.
    */
@@ -31,9 +45,24 @@ export declare global {
     L extends string[],
     D extends string = "",
     Temp extends string = ""
-  > = L extends [infer F extends string, ...infer R extends string[]]
-    ? Join<R, D, `${Temp}${F}${IsArray<R> extends true ? D : ""}`>
-    : Temp;
+  > = IillStrict<
+    D,
+    string,
+    IillStrict<
+      L,
+      Uppercase<string>[],
+      IillStrict<
+        L,
+        string[],
+        L extends [infer F extends string, ...infer R extends string[]]
+          ? Join<R, D, `${Temp}${F}${IsArray<R> extends true ? D : ""}`>
+          : Temp,
+        string
+      >,
+      string
+    >,
+    string
+  >;
   /**
    * Combines the text of two or more strings and returns a new string.
    */
