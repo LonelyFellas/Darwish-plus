@@ -23,4 +23,7 @@ namespace TypeTests {
     Equal<Includes<"Hello, World", "Hello, World", 0>, true>
   >;
   type type19 = Expect<Equal<Includes<"Hello, World", "", 0>, true>>;
+  type test1 = Expect<Equal<Includes<"abcde", "bcd">, true>>;
+  type test2 = Expect<Equal<Includes<string, "bcd">, boolean>>;
+  type test3 = Expect<Equal<Includes<"abcde", string>, boolean>>;
 }

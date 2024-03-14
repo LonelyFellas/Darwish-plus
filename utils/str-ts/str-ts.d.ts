@@ -13,6 +13,17 @@ type Iill<T, P, Flase, True = P> = T extends P ? True : False;
 type IillStrict<T, P, False, True = P> = Darwish.Equal<T, P> extends true
   ? True
   : False;
+type IillStrictStr<T, False, True> = Darwish.Equal<T, string> extends true
+  ? True
+  : Darwish.Equal<T, Uppercase<string>> extends true
+  ? True
+  : False;
+type IillStrictStrArr<T, False, True> = Darwish.Equal<T, string[]> extends true
+  ? True
+  : Darwish.Equal<T, Uppercase<string>[]> extends true
+  ? True
+  : False;
+// type IillStrictStrs<T extends any[] = [], False, True> = T extends [infer F, infer R] ? IillStrictStr<F, string,
 
 export declare global {
   type IsArray<A extends any[]> = A extends [infer F, ...infer R]
@@ -48,17 +59,11 @@ export declare global {
   > = IillStrict<
     D,
     string,
-    IillStrict<
+    IillStrictStrArr<
       L,
-      Uppercase<string>[],
-      IillStrict<
-        L,
-        string[],
-        L extends [infer F extends string, ...infer R extends string[]]
-          ? Join<R, D, `${Temp}${F}${IsArray<R> extends true ? D : ""}`>
-          : Temp,
-        string
-      >,
+      L extends [infer F extends string, ...infer R extends string[]]
+        ? Join<R, D, `${Temp}${F}${IsArray<R> extends true ? D : ""}`>
+        : Temp,
       string
     >,
     string
@@ -76,9 +81,17 @@ export declare global {
     T extends string,
     S extends string,
     P extends number = 0
-  > = Slice<T, 0, Math.Subtract<Darwish.Length<T>, P>> extends `${infer R}${S}`
-    ? true
-    : false;
+  > = IillStrictStr<
+    S,
+    IillStrictStr<
+      T,
+      Slice<T, 0, Math.Subtract<Darwish.Length<T>, P>> extends `${infer R}${S}`
+        ? true
+        : false,
+      boolean
+    >,
+    boolean
+  >;
   /**
    * Returns true if searchString appears as a substring of the result of converting this object to a String, at one or more positions that are greater than or equal to position; otherwise, returns false.
    */
@@ -87,11 +100,19 @@ export declare global {
     S extends string,
     P extends number = 0,
     TempStr extends string = Slice<T, P>
-  > = TempStr extends `${infer L}${S}${infer R}`
-    ? true
-    : TempStr extends `${S}`
-    ? true
-    : false;
+  > = IillStrictStr<
+    S,
+    IillStrictStr<
+      T,
+      TempStr extends `${infer L}${S}${infer R}`
+        ? true
+        : TempStr extends `${S}`
+        ? true
+        : false,
+      boolean
+    >,
+    boolean
+  >;
   /**
    * Returns the length of a String object. Gets or sets the length of the array.
    * This is a number one higher than the highest index in the array.Returns a section of a string.

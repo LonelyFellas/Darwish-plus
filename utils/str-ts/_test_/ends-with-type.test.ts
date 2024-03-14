@@ -9,4 +9,8 @@ namespace TypeTests {
   type type7 = Expect<Equal<EndsWith<"Hello, World", "Hello", 7>, true>>;
   type type8 = Expect<Equal<EndsWith<"Hello, World", "Hello, World">, true>>;
   type type9 = Expect<Equal<EndsWith<"Hello, World", "">, true>>;
+  type test1 = Expect<Equal<EndsWith<"abc", "c">, true>>;
+  type test2 = Expect<Equal<EndsWith<string, "c">, boolean>>;
+  type test3 = Expect<Equal<EndsWith<Uppercase<string>, "c">, boolean>>;
+  type test4 = Expect<Equal<EndsWith<"abc", string>, boolean>>;
 }
