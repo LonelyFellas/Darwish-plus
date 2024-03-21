@@ -4,7 +4,7 @@ import { Button, type ButtonProps } from "antd";
 //👇 This default export determines where your story goes in the story list
 const meta: Meta<ButtonProps> = {
   title: "Example/Button",
-  component: Button,
+  component: () => <Button>你好</Button>,
   tags: ["autodocs"],
 };
 
