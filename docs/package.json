@@ -18,6 +18,11 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@darwish/hooks-core": "workspace:^",
+    "@storybook/addon-essentials": "^8.0.2",
+    "@storybook/addon-interactions": "^8.0.2",
+    "@storybook/addon-links": "^8.0.2",
+    "@storybook/blocks": "^8.0.2",
     "@storybook/react": "^8.0.2",
     "@storybook/react-vite": "^8.0.2",
     "@types/react": "^18.2.66",
