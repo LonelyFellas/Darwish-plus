@@ -1,19 +1,36 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import UseBooleanDemo from "./index.demo";
+import { useBoolean } from "@darwish/hooks-core";
+import type { Meta } from "@storybook/react";
 import HookDocsView from "../../components/hook-docs-view";
 
-const meta: Meta<typeof UseBooleanDemo> = {
+export const Source = () => {
+  // import { useBoolean } from "@darwish/hooks-core";
+  const [on, toggle] = useBoolean(true);
+
+  return (
+    <div>
+      <div>{on ? "ON" : "OFF"}</div>
+      <button onClick={toggle}>Toggle</button>
+      <button onClick={() => toggle(true)}>set ON</button>
+      <button onClick={() => toggle(false)}>set OFF</button>
+    </div>
+  );
+};
+
+const meta: Meta<typeof Source> = {
   title: "States/useBoolean",
-  component: UseBooleanDemo,
+  component: Source,
   tags: ["autodocs"],
   parameters: {
     componentsSubtitle: "use-boolean",
-    componentsDescription: "1111",
     docs: {
       page: () => (
         <HookDocsView
           args={{
             title: "Use Boolean",
+            description:
+              "An object containing the boolean state value and utility functions to manipulate the state.",
+            sourceUrl:
+              "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useBoolean/index.ts",
           }}
         />
       ),
@@ -22,11 +39,3 @@ const meta: Meta<typeof UseBooleanDemo> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof UseBooleanDemo>;
-
-export const Demo: Story = {
-  args: {
-    defaultValue: false,
-    //👇 The args you need here will depend on your component
-  },
-};
