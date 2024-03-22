@@ -1,16 +1,38 @@
 import { Title, Controls, Canvas } from "@storybook/blocks";
 import { Divider, Typography } from "antd";
-import Table from "./table.mdx";
+import { ReactNode } from "react";
+import APITableProperty from "./api-talbe-property";
+
+interface ApiDs {
+  name?: string;
+  type?: ReactNode;
+  defaultValue?: string;
+  description?: ReactNode;
+}
+export interface DSProps {
+  type?: ReactNode;
+  description?: ReactNode;
+  ds?: ApiDs[];
+}
 interface HookDocsViewProps {
   args?: {
     title?: string;
     description?: string;
     sourceUrl?: string;
   };
+  apiDescription: string;
+  paramDs?: DSProps;
+  returnDs?: DSProps;
 }
+export const descriptionStyle: React.CSSProperties = {
+  margin: "5px 0px",
+  fontWeight: "bold",
+  color: "#797979",
+};
 
 const { Title: AntdTitle } = Typography;
 export default function HookDocsView(props: HookDocsViewProps) {
+  const { paramDs, returnDs, apiDescription } = props;
   const {
     title,
     description = "No description",
@@ -22,15 +44,7 @@ export default function HookDocsView(props: HookDocsViewProps) {
       <Title>{title}</Title>
       <Divider style={{ margin: "10px 0" }} />
       <AntdTitle level={4}>Usage</AntdTitle>
-      <div
-        style={{
-          marginTop: "5px",
-          fontWeight: "bold",
-          color: "#797979",
-        }}
-      >
-        {description}
-      </div>
+      <div style={descriptionStyle}>{description}</div>
       <Canvas
         additionalActions={[
           {
@@ -42,7 +56,24 @@ export default function HookDocsView(props: HookDocsViewProps) {
         ]}
         sourceState="shown"
       />
-      <Table />
+      <div>
+        <AntdTitle level={4}>API</AntdTitle>
+        <div style={{ fontWeight: "bold", color: "#797979" }}>
+          {apiDescription}
+        </div>
+        <APITableProperty
+          dataSource={{
+            ...paramDs,
+            title: "Paramters",
+          }}
+        />
+        <APITableProperty
+          dataSource={{
+            ...returnDs,
+            title: "Returns",
+          }}
+        />
+      </div>
       <Controls />
     </>
   );
