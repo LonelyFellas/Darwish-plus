@@ -2,7 +2,7 @@ import type { PropsWithChildren } from "react";
 
 export default function If(props: {
   is: boolean;
-  render: () => React.ReactNode;
+  render: React.ReactNode;
 }): JSX.Element;
 export default function If(
   props: PropsWithChildren<{ is: boolean }>

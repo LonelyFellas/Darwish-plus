@@ -1,7 +1,6 @@
 import React from "react";
 import If from "./if";
-
-export { default as Switch } from "./switch";
+export { Case, Default, Switch } from "./switch";
 export { If };
 
 export interface OnlyWhenProps {
