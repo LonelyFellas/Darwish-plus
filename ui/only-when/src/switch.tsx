@@ -6,14 +6,14 @@ import If from "./if";
 type Label = keyof JSX.IntrinsicElements;
 type LabelProps<T extends Label> = {
   as: T;
-  tagProps?: JSX.IntrinsicElements[T];
+  tagProps?: ReturnType<typeof createElement>['props'];
 };
 export function Switch(props: PropsWithChildren<{}>): JSX.Element;
 export function Switch<T extends Label>(props: PropsWithChildren<LabelProps<T>>): JSX.Element;
 export function Switch<T extends Label = any>(
   props: PropsWithChildren<{
     as?: T;
-    tagProps?: JSX.IntrinsicElements[T];
+    tagProps?: ReturnType<typeof createElement>['props'];
   }>
 ) {
   const { as: Component, tagProps, children } = props;
@@ -37,7 +37,7 @@ export function Switch<T extends Label = any>(
 interface CaseLabelProps<T extends Label> {
   is?: boolean;
   as: T;
-  tagProps?: JSX.IntrinsicElements[T];
+  tagProps?: ReturnType<typeof createElement>['props'];
 }
 export function Case(props: PropsWithChildren<{is?: boolean}>): JSX.Element;
 export function Case<T extends Label>(props: PropsWithChildren<CaseLabelProps<T>>): JSX.Element;
@@ -55,7 +55,7 @@ export function Default<T extends Label>(props: PropsWithChildren<LabelProps<T>>
 export function Default<T extends Label>(
   props: PropsWithChildren<{
     as?: T;
-    tagProps?: JSX.IntrinsicElements[keyof JSX.IntrinsicElements];
+    tagProps?: ReturnType<typeof createElement>['props'];
   }>
 ) {
   const { as: Component, tagProps} = props;
