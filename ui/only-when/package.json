@@ -1,6 +1,6 @@
 {
   "name": "@darwish/only-when",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "",
   "main": "./lib/src/index.js",
   "module": "./esm/src/index.js",
@@ -28,7 +28,7 @@
     "darwish"
   ],
   "dependencies": {
-    "@darwish/utils-is": "0.0.3"
+    "@darwish/utils-is": "latest"
   },
   "author": "darwish <289582304@qq.com>",
   "license": "ISC"
