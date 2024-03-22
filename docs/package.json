@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@darwish/hooks-core": "workspace:^",
+    "@darwish/only-when": "workspace:^",
     "@storybook/addon-essentials": "^8.0.2",
     "@storybook/addon-interactions": "^8.0.2",
     "@storybook/addon-links": "^8.0.2",

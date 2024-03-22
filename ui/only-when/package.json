@@ -2,10 +2,10 @@
   "name": "@darwish/only-when",
   "version": "0.0.1",
   "description": "",
-  "main": "./lib/index.js",
-  "module": "./esm/index.js",
-  "types": "./lib/index.d.ts",
-  "typings": "./lib/index.d.ts",
+  "main": "./lib/src/index.js",
+  "module": "./esm/src/index.js",
+  "types": "./lib/src/index.d.ts",
+  "typings": "./lib/src/index.d.ts",
   "files": [
     "esm",
     "lib",
@@ -19,7 +19,7 @@
     "build:es": "tsc -m esNext --outDir esm",
     "build": "pnpm build:cjs && pnpm build:es",
     "prepublish": "npm run build",
-    "publish": "npm publish",
+    "publish": "npm run publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
