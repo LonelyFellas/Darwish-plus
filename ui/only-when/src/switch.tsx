@@ -20,7 +20,6 @@ export function Switch<T extends Label = any>(
   const isCmpUndef = Component === undefined;
 
   let filterChildren = undefined;
-  console.log(children, "children")
   if (isArray(children)) {
     filterChildren = children.filter((child) => {
       return child.type === Case || child.type === Default;
