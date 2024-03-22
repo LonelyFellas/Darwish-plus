@@ -297,7 +297,7 @@ importers:
   ui/only-when:
     dependencies:
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: 0.0.3
         version: link:../../utils/is
 
   utils: {}

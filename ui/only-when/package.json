@@ -1,6 +1,6 @@
 {
   "name": "@darwish/only-when",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "",
   "main": "./lib/src/index.js",
   "module": "./esm/src/index.js",
@@ -19,7 +19,6 @@
     "build:es": "tsc -m esNext --outDir esm",
     "build": "pnpm build:cjs && pnpm build:es",
     "prepublish": "npm run build",
-    "publish": "npm run publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -29,7 +28,7 @@
     "darwish"
   ],
   "dependencies": {
-    "@darwish/utils-is": "workspace:*"
+    "@darwish/utils-is": "0.0.3"
   },
   "author": "darwish <289582304@qq.com>",
   "license": "ISC"
