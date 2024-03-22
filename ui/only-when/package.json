@@ -1,6 +1,6 @@
 {
-  "name": "@darwish/use-boolean",
-  "version": "0.0.2",
+  "name": "@darwish/only-when",
+  "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
@@ -23,8 +23,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "use-boolean",
-    "hooks",
+    "only-when",
+    "ui",
     "react",
     "darwish"
   ],
