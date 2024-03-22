@@ -18,6 +18,7 @@ function App() {
         as="ul"
         tagProps={{
           className: "flex space-x-2",
+          onClick: handleClick,
         }}
       >
         <Case
@@ -25,7 +26,6 @@ function App() {
           is={states.age > 10}
           tagProps={{
             className: "text-red-600",
-            onClick: handleClick,
           }}
         >
           1

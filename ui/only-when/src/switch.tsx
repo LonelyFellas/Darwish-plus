@@ -4,16 +4,17 @@ import { isObject, isArray } from "@darwish/utils-is"
 import If from "./if";
 
 type Label = keyof JSX.IntrinsicElements;
+type TagProps<T extends Label> = JSX.IntrinsicElements[T];
 type LabelProps<T extends Label> = {
   as: T;
-  tagProps?: ReturnType<typeof createElement>['props'];
+  tagProps?: TagProps<T>;
 };
 export function Switch(props: PropsWithChildren<{}>): JSX.Element;
 export function Switch<T extends Label>(props: PropsWithChildren<LabelProps<T>>): JSX.Element;
 export function Switch<T extends Label = any>(
   props: PropsWithChildren<{
     as?: T;
-    tagProps?: ReturnType<typeof createElement>['props'];
+    tagProps?: TagProps<T>;
   }>
 ) {
   const { as: Component, tagProps, children } = props;
@@ -37,7 +38,7 @@ export function Switch<T extends Label = any>(
 interface CaseLabelProps<T extends Label> {
   is?: boolean;
   as: T;
-  tagProps?: ReturnType<typeof createElement>['props'];
+  tagProps?: TagProps<T>;
 }
 export function Case(props: PropsWithChildren<{is?: boolean}>): JSX.Element;
 export function Case<T extends Label>(props: PropsWithChildren<CaseLabelProps<T>>): JSX.Element;
@@ -55,7 +56,7 @@ export function Default<T extends Label>(props: PropsWithChildren<LabelProps<T>>
 export function Default<T extends Label>(
   props: PropsWithChildren<{
     as?: T;
-    tagProps?: ReturnType<typeof createElement>['props'];
+    tagProps?: TagProps<T>;
   }>
 ) {
   const { as: Component, tagProps} = props;
