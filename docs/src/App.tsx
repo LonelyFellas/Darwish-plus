@@ -2,39 +2,15 @@ import "./App.css";
 import { Button, Space } from "antd";
 import { useBearStore } from "./store";
 import { useSetState } from "ahooks";
-import { Switch, Case, Default } from "@darwish/only-when";
 
 function App() {
   const [states, setStates] = useSetState({
     name: "darwish",
     age: 23,
   });
-  const handleClick = () => {
-    window.alert("clicked");
-  };
+
   return (
     <Space direction="vertical" className="p-2">
-      <Switch
-        as="ul"
-        tagProps={{
-          className: "flex space-x-2",
-          onClick: handleClick,
-        }}
-      >
-        <Case
-          as="li"
-          is={states.age > 10}
-          tagProps={{
-            className: "text-red-600",
-          }}
-        >
-          1
-        </Case>
-        <Case as="li" is={states.age > 30}>
-          2
-        </Case>
-        <Default as="li">3</Default>
-      </Switch>
       <h1 className="text-emerald-600">
         Hello {states.name}, i am {states.age} year(s) old{" "}
       </h1>

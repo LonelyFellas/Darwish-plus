@@ -13,7 +13,7 @@ export function Switch(
 ) {
   const { children } = props;
 
-  let filterChildren = undefined;
+  let filterChildren: any[] = [];
   if (isArray(children)) {
     filterChildren = children.filter((child) => child.type === Case || child.type === Default)
   } else if (isObject(children) && ((children as any).type === Case || (children as any).type === Default)) {

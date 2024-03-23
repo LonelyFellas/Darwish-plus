@@ -4,7 +4,7 @@ only-when
 [![npm version](https://img.shields.io/npm/v/@darwish/only-when.svg)](https://www.npmjs.com/package/@darwish/only-when)
 
 
-A declarative component for conditional rendering. Copy [`react-only-when`](https://github.com/sag1v/react-only-when), let it support TypeScript.
+A declarative component for conditional rendering. Copy [`only-when`](https://github.com/LonelyFellas/Darwish-plus), let it support TypeScript.
 
 ## Quick Start
 
