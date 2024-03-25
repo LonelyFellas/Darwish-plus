@@ -1,5 +1,13 @@
 import { useCallback, useState } from 'react';
 
+
+/**
+ * @description
+ * @param initialValue The initial state of the component
+ * @returns A tuple with two elements
+ * @module hooks/core/useSetState
+ * @see
+ */
 export default function useSetState<
   T extends Record<PropertyKey, any> | (() => Record<PropertyKey, any>),
 >(initialValue: T) {

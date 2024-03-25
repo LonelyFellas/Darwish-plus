@@ -19,7 +19,7 @@ export default function APITableProperty(props: {
       ) : null}
       <Table
         size="small"
-        bordered
+        rowKey={(record) => record.name || ""}
         pagination={false}
         columns={[
           {
@@ -45,7 +45,7 @@ export default function APITableProperty(props: {
             key: "description",
           },
         ]}
-        dataSource={dataSource?.ds}
+        dataSource={dataSource.ds || []}
       />
     </>
   );

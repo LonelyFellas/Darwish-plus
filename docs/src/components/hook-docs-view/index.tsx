@@ -1,6 +1,6 @@
-import { Title, Controls, Canvas } from "@storybook/blocks";
+import { Title, Canvas, Source } from "@storybook/blocks";
 import { Divider, Typography } from "antd";
-import { ReactNode } from "react";
+import {ReactNode, useEffect, useState} from "react";
 import APITableProperty from "./api-talbe-property";
 
 interface ApiDs {
@@ -33,16 +33,23 @@ export const descriptionStyle: React.CSSProperties = {
 const { Title: AntdTitle } = Typography;
 export default function HookDocsView(props: HookDocsViewProps) {
   const { paramDs, returnDs, apiDescription } = props;
+  const [queryTitle, setQueryTitle] = useState<string | null>(null);
   const {
     title,
     description = "No description",
     sourceUrl = "https://github.com/LonelyFellas/Darwish-plus/tree/main/hooks",
   } = props.args || {};
 
+  useEffect(() => {
+    setQueryTitle(document.querySelector(".sbdocs-title.sb-unstyled")?.textContent || '');
+  }, []);
+
   return (
     <>
       <Title>{title}</Title>
-      <Divider style={{ margin: "10px 0" }} />
+      <Divider style={{margin: '10px'}}/>
+      <AntdTitle level={4}>Install</AntdTitle>
+      <Source code={`npm install @darwish/${queryTitle}`}></Source>
       <AntdTitle level={4}>Usage</AntdTitle>
       <div style={descriptionStyle}>{description}</div>
       <Canvas
@@ -62,19 +69,21 @@ export default function HookDocsView(props: HookDocsViewProps) {
           {apiDescription}
         </div>
         <APITableProperty
+          key="param"
           dataSource={{
             ...paramDs,
             title: "Paramters",
           }}
         />
         <APITableProperty
+          key="return"
           dataSource={{
             ...returnDs,
             title: "Returns",
           }}
         />
       </div>
-      <Controls />
+      {/*<Controls />*/}
     </>
   );
 }

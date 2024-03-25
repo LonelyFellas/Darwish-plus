@@ -297,6 +297,8 @@ importers:
 
   ui: {}
 
+  ui/head: {}
+
   ui/only-when:
     dependencies:
       '@darwish/utils-is':

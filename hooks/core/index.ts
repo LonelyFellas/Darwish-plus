@@ -26,3 +26,5 @@ export { default as useUpdateEffect } from "./useUpdateEffect";
 export { default as useUpdateEffectOnce } from "./useUpdateEffectOnce";
 export { default as useCopyToClipboard } from "./useCopyToClipboard";
 export { useRouteState, useRouteStates } from "./useRouteState";
+export { default as useConsole } from "./useConsole";
+export * as authConsole from "./utils/auth-console";

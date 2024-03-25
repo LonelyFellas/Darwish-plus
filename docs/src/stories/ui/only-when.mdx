@@ -1,5 +1,6 @@
 only-when
 ===
+import { Table } from "antd";
 
 [![npm version](https://img.shields.io/npm/v/@darwish/only-when.svg)](https://www.npmjs.com/package/@darwish/only-when)
 
@@ -8,15 +9,15 @@ A declarative component for conditional rendering. Copy [`only-when`](https://gi
 
 ## Quick Start
 
-```bash
+```shell
 $ npm install --save @darwish/only-when
 ```
 
 ## Usage
 
 ```jsx
-import Only from '@darwish/only-when'; 
- 
+import Only from '@darwish/only-when';
+
 <Only when={true}>
   <h1>Here I Am</h1>
 </Only>
@@ -145,22 +146,77 @@ export default function App() {
 ```
 
 ## `<Only />` props
-
-| prop name  | type | default | isRequired | description |
-| ----- | ----- | ----- | ----- | ----- |
-| children | react element | `null` | `true` | A single child element |
-| when | bool | `false` | `true` | When true, children will rendered as is |
-| hiddenMode | string | `null`   | `false` | Determines how children should be hidden |
-| className  | string | `w-hidden` | `false` | This is working in combination with `hiddenMode={"css"}` |
+<Table size="small" pagination={false} columns={[{
+    title: 'prop name',
+    dataIndex: 'propName',
+    key: 'propName',
+}, {
+    title: 'type',
+    dataIndex: 'type',
+    key: 'type',
+}, {
+    title: 'default',
+    dataIndex: 'default',
+    key: 'default',
+}, {
+    title: 'isRequired',
+    dataIndex: 'isRequired',
+    key: 'isRequired',
+}, {
+    title: 'description',
+    dataIndex: 'description',
+    key: 'description',
+}]} dataSource={[{
+    propName: 'children',
+    type: 'react element',
+    default: 'null',
+    isRequired: 'true',
+    description: 'A single child element',
+}, {
+    propName: 'when',
+    type: 'boolean',
+    default: 'false',
+    isRequired: 'true',
+    description: 'When true, children will rendered as is',
+}, {
+    propName: 'hiddenMode',
+    type: 'string',
+    default: 'null',
+    isRequired: 'false',
+    description: 'Determines how children should be hidden',
+}, {
+    propName: 'className',
+    type: 'string',
+    default: 'w-hidden',
+    isRequired: 'false',
+    description: 'A custom class name to be applied when hiddenMode is set to `css`',
+}]}></Table>
 
 **`hiddenMode` enum**
 
-| hiddenMode | description |
-| ----- | ----- |
-| `null` | Will not render the child |
-| `display` | Will render the child with `display:none` |
-| `visibility` | Will render the child with `visibility:hidden` |
-| `css` | Will render the child with a CSS class (you can pass it a custom `className` prop) |
+<Table size="small" pagination={false} columns={[{
+    title: 'hiddenMode',
+    dataIndex: 'hiddenMode',
+    key: 'hiddenMode',
+}, {
+    title: 'description',
+    dataIndex: 'description',
+    key: 'description',
+}]} dataSource={[{
+    hiddenMode: 'null',
+    description: 'Will not render the child',
+}, {
+    hiddenMode: 'display',
+    description: 'Will render the child with `display:none`',
+}, {
+    hiddenMode: 'visibility',
+    description: 'Will render the child with `visibility:hidden`',
+}, {
+    hiddenMode: 'css',
+    description: 'Will render the child with a CSS class (you can pass it a custom `className` prop)',
+}]}>
+
+</Table>
 
 ## `<If />` Props
 

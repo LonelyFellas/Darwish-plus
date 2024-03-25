@@ -1,19 +1,27 @@
 import { useCallback, useState } from 'react';
 import jsCookie from 'js-cookie';
 
+export type UseCookieOutput = [
+    string | null,
+  (value: string, option?: jsCookie.CookieAttributes) => void,
+  () => void
+]
 /**
  * @description A hook to get, set and delete cookie
  * @param cookieName cookie name
- * @returns [cookieValue, updateCookie, deleteCookie] -> Array
+ * @returns UseCookieOutput A tuple with three elements
+ * @property UseCookieOutput[0] cookie value
+ * @property UseCookieOutput[1] updateCookie
+ * @property UseCookieOutput[2] deleteCookie
  * @example
- * const [cookieValue, updateCookie, deleteCookie] = useCookie('cookieName');
  * updateCookie('cookieValue');
  * deleteCookie();
  */
-export default function useCookie(cookieName: string) {
+export default function useCookie(cookieName: string): UseCookieOutput {
   const [cookieValue, setCookieValue] = useState(
     () => jsCookie.get(cookieName) || null,
   );
+
   const updateCookie = useCallback(
     (value: string, option?: jsCookie.CookieAttributes) => {
       jsCookie.set(cookieName, value, option);
@@ -27,5 +35,6 @@ export default function useCookie(cookieName: string) {
     setCookieValue(null);
   }, [cookieName]);
 
-  return [cookieValue, updateCookie, deleteCookie] as const;
+  return [cookieValue, updateCookie, deleteCookie];
 }
+
