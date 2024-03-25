@@ -1,11 +1,11 @@
-import { Tag } from "antd";
-import type { Meta } from "@storybook/react";
-import ReactMarkdownPreview  from "@uiw/react-markdown-preview"
-import CodePreview from "@uiw/react-code-preview";
+import {Tag} from "antd";
+import type {Meta} from "@storybook/react";
+import ReactMarkdownPreview from "@uiw/react-markdown-preview"
 import HookPreview from "../../components/hook-preview"
-import { useConsole } from "@darwish/hooks-core"
+import CodePreview from "../../components/code-preview";
+import {useConsole} from "@darwish/hooks-core"
 
-const docs= `
+const docs = `
   # useConsole
   
   ### 需求：
@@ -13,10 +13,53 @@ const docs= `
   从而有个这个钩子。
   
   主要是为了在生产环境或者测试环境下让特定的人员(比如开发人员), 能够看到一些日志 \`log\`,\`warn\`,\`dir\`, \`error\`信息。
+  
+  \`\`\`shell
+    $ npm install @darwish/useConsole@latest
+  \`\`\`
+  
+  ## Usage
+  \`\`\`tsx 
+  import { setState } from "react"
+  import { useConsole } from "@darwish/hooks-core"
+  
+  function Demo() {
+    const [states, setStates] = useState<{
+      isAuth: boolean;
+      env: "development" | "production" | "test";
+    }>({
+      isAuth: true,
+      env: "test",
+    });
+    const { log, warn, error, dir } = useConsole(states);
+
+    log("这是一个测试用例");
+    return (
+    <AuthConsoleProvider isAuth={states.isAuth}>
+      <div>
+      </div>
+    </AuthConsoleProvider>
+  );
+  }
+  \`\`\`
+  ## API
+  
+  ### Parameters
+  | Name | type | DefaultValue | Description |
+  | ---- | ---- | ------------ | ----------- |
+  | \`env\` | \`development-production-test\`| \`development\` | 用于判断当前环境 |
+  | \`isAuth\` | \`boolean\` | \`false\` | 是否授权 |
+  ### Returns
+  | Name | Type | Description |
+  | ---- | ---- | ----------- |
+  | \`log\` | (message: any) => void | 输出日志信息 |
+  | \`warn\` | (message: any) => void | 输出警告信息 |
+  | \`error\` | (message: any) => void | 输出错误信息 |
+  | \`dir\` | (message: any) => void | 输出对象信息 | 
 `
 
-export const DevDemo= () => {
-  const { log } = useConsole({
+export const DevDemo = () => {
+  const {log} = useConsole({
     env: "development",
     isAuth: true, // 当 env = dev,  忽略 isAuth
   })
@@ -31,7 +74,7 @@ export const DevDemo= () => {
 };
 
 export const ProductionAuthTrue = () => {
-  const { log } = useConsole({
+  const {log} = useConsole({
     env: "production",
     isAuth: true,
   })
@@ -45,7 +88,7 @@ export const ProductionAuthTrue = () => {
   );
 }
 export const ProductionAuthFalse = () => {
-  const { log } = useConsole({
+  const {log} = useConsole({
     env: "production",
     isAuth: false,
   })
@@ -65,7 +108,9 @@ const meta: Meta<any> = {
   parameters: {
     docs: {
       page: () => (
-        <ReactMarkdownPreview source={docs} />
+        <div style={{height: '100%', overflowY: 'auto'}}>
+          <ReactMarkdownPreview source={docs}/>
+        </div>
       ),
     },
   },

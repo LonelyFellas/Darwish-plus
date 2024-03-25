@@ -13,6 +13,7 @@
   "dependencies": {
     "@uiw/react-code-preview": "^5.1.2",
     "@uiw/react-markdown-preview": "^5.1.1",
+    "@uiw/react-markdown-preview-example": "^2.1.4",
     "ahooks": "^3.7.10",
     "antd": "^5.15.3",
     "react": "^18.2.0",
