@@ -1,6 +1,6 @@
 import { useAuthLog } from "./utils/auth-console";
 
-interface UseConsoleOption {
+export interface UseConsoleOption {
   env?: "development" | "production" | "test";
   isAuth?: boolean;
 }

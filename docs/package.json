@@ -11,6 +11,8 @@
     "sb": "storybook dev -p 6006"
   },
   "dependencies": {
+    "@uiw/react-code-preview": "^5.1.2",
+    "@uiw/react-markdown-preview": "^5.1.1",
     "ahooks": "^3.7.10",
     "antd": "^5.15.3",
     "react": "^18.2.0",
