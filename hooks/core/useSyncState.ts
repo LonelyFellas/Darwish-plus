@@ -5,7 +5,7 @@ const useSyncState = <T extends object>(initialValue: T) => {
   const dispatchError = useDisplayDevError();
 
   const proxy = useMemo(() => {
-    return new Proxy(initialValue, {
+    return new Proxy(state, {
       set(obj, prop, value) {
         try {
           obj[prop as keyof T] = value;

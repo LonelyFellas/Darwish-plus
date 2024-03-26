@@ -15,6 +15,7 @@ export type UseListUtils<T> = {
     callbackFn: (value: T, index?: number, array?: T[]) => boolean,
     thisArg?: any
   ) => void;
+  sort: (compareFn: (a: T, b: T) => number) => void;
   removeAt: (index: number) => void;
   clear: () => void;
   reset: () => void;

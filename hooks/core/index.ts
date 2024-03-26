@@ -18,6 +18,7 @@ export { default as usePrevious } from "./usePrevious";
 export { default as useScroll } from "./useScroll";
 export { default as useSessionStorage } from "./useSessionStorage";
 export { default as useSetState } from "./useSetState";
+export { default as useSet } from "./useSet";
 export { default as useSyncState } from "./useSyncState";
 export { default as useToggle } from "./useToggle";
 export { default as useUnmount } from "./useUnmount";

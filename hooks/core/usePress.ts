@@ -1,9 +1,10 @@
-import { cloneElement, useEffect } from 'react';
+import React, { cloneElement, useEffect } from 'react';
 import useSetState from './useSetState';
 
 const usePress = (
-  pressedView: JSX.Element | (() => JSX.Element),
+  pressedView: React.JSX.Element | (() => React.JSX.Element),
   callback: () => void,
+  pressTime: number = 300,
 ) => {
   const element =
     typeof pressedView === 'function' ? pressedView() : pressedView;
@@ -28,8 +29,17 @@ const usePress = (
   };
 
   useEffect(() => {
-    if (times.spendTime >= 250) {
-      callback();
+    if (times.spendTime >= pressTime) {
+      /**
+       * 有可能两次相同的花费时间，所以需要判断是否已经执行过
+       * 如果已经执行过，startTime 会被重置为 -1
+       * 如果没有执行过，startTime 一定是 0
+       * 因为在onMouseDown中，spendTime 会被赋值为 0
+       */
+      if (times.startTime === 0) {
+        callback();
+        setTimes({ spendTime: -1 });
+      }
     }
   }, [times.spendTime]);
   return () =>

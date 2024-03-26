@@ -9,3 +9,4 @@
 
 ## Bugs
 - [ ] `useUpdateEffectOnce`的`condition`有bug 
+- [ ] `usePress`的`onPress`有bug 只允许左键按压

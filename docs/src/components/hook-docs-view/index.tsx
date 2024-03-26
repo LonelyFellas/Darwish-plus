@@ -1,5 +1,5 @@
 import { Title, Canvas, Source } from "@storybook/blocks";
-import { Divider, Typography } from "antd";
+import {Divider, Tag, Typography} from "antd";
 import React, {ReactNode, useEffect, useState} from "react";
 import APITableProperty from "./api-talbe-property";
 
@@ -17,6 +17,7 @@ export interface DSProps {
 interface HookDocsViewProps {
   args?: {
     title?: string;
+    beCare?: string;
     description?: string;
     sourceUrl?: string;
   };
@@ -37,6 +38,7 @@ export default function HookDocsView(props: HookDocsViewProps) {
   const {
     title,
     description = "No description",
+    beCare,
     sourceUrl = "https://github.com/LonelyFellas/Darwish-plus/tree/main/hooks",
   } = props.args || {};
 
@@ -52,6 +54,7 @@ export default function HookDocsView(props: HookDocsViewProps) {
       <Source code={`npm install @darwish/${queryTitle}`}></Source>
       <AntdTitle level={4}>Usage</AntdTitle>
       <div style={descriptionStyle}>{description}</div>
+      {beCare && <Tag style={{color: 'darkred', fontSize: '14px'}}>{beCare}</Tag>}
       <Canvas
         additionalActions={[
           {
@@ -65,7 +68,7 @@ export default function HookDocsView(props: HookDocsViewProps) {
       />
       <div>
         <AntdTitle level={4}>API</AntdTitle>
-        <div style={{ fontWeight: "bold", color: "#797979" }}>
+        <div style={{fontWeight: "bold", color: "#797979"}}>
           {apiDescription}
         </div>
         <APITableProperty
