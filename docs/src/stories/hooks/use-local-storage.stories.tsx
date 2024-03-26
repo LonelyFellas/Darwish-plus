@@ -27,7 +27,7 @@ export const Demo = () => {
 };
 
 const meta: Meta<typeof Demo> = {
-  title: "Hooks/useToggle",
+  title: "Hooks/useLocalStorage",
   component: Demo,
   tags: ["autodocs"],
   parameters: {
