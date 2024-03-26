@@ -2,9 +2,9 @@ import { useCallback, useState } from 'react';
 import jsCookie from 'js-cookie';
 
 export type UseCookieOutput = [
-    string | null,
-  (value: string, option?: jsCookie.CookieAttributes) => void,
-  () => void
+  cookieValue: string | null,
+  updateCookie: (value: string, option?: jsCookie.CookieAttributes) => void,
+  deleteCookie: () => void
 ]
 /**
  * @description A hook to get, set and delete cookie

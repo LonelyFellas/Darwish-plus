@@ -1,7 +1,12 @@
 import { useState } from 'react';
 
 type Storage = 'sessionStorage' | 'localStorage';
-export default function useStorage(type: Storage, key: string) {
+export type UseStorageOutput = [
+  storage: string | null | undefined,
+  updateStorage: (value: unknown) => void,
+  removeStorage: () => void,
+]
+export default function useStorage(type: Storage, key: string): UseStorageOutput {
   const [storage, setStorage] = useState(() => {
     if (typeof window === 'undefined') return null as any;
     try {
@@ -23,5 +28,5 @@ export default function useStorage(type: Storage, key: string) {
     }
   };
 
-  return [storage, updateStorage, removeStorage] as const;
+  return [storage, updateStorage, removeStorage]
 }

@@ -20,7 +20,7 @@ interface HookDocsViewProps {
     description?: string;
     sourceUrl?: string;
   };
-  apiDescription: string;
+  apiDescription: any;
   paramDs?: DSProps;
   returnDs?: DSProps;
 }
