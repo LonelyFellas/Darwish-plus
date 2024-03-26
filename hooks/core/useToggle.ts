@@ -1,54 +1,54 @@
-import { useMemo, useState } from 'react';
+import {ChangeEvent, useMemo, useState} from 'react';
+
 export type UseToggleActions<T> = {
-  toggle: () => void;
-  set: (settingValue: T) => void;
+  toggle: (settingValue: ChangeEvent<any> | T) => void;
   setLeft: () => void;
   setRight: () => void;
 };
-function useToggle<T = boolean>(): [boolean, UseToggleActions<T>];
 
-function useToggle<T>(): [T, UseToggleActions<T>];
+function useToggle<T = boolean>(): { value: T } & UseToggleActions<T>;
 
-function useToggle<T, U>(
+function useToggle<const T, const U>(defaultValue: T, reverseValue: U): { value: T | U } & UseToggleActions<T>;
+
+function useToggle<T = boolean, U = null>(
   defaultValue: T,
   reverseValue: U,
-): [T | U, UseToggleActions<T | U>];
+): { value: T | U } & UseToggleActions<T | U>;
 
-function useToggle<T, U>(
+function useToggle<const T, const U>(
   defaultValue: T = false as unknown as T,
   reverseValue?: U,
 ) {
-  const [state, setState] = useState<T | U>(defaultValue);
+  const [value, setValue] = useState<T | U>(defaultValue);
 
   const action = useMemo(() => {
     const reverseValueOrigin = (
       reverseValue === 'undefined' ? !defaultValue : reverseValue
     ) as T | U;
 
-    const toggle = () => {
-      setState((prev) =>
-        prev === defaultValue ? reverseValueOrigin : defaultValue,
-      );
-    };
-    const set = (settingValue: T | U) => {
-      setState(settingValue);
+    const toggle = (settingValue: T | U | ChangeEvent<any>) => {
+      setValue((prev) => {
+        if (typeof settingValue === "boolean") {
+          return settingValue;
+        }
+        return prev === defaultValue ? reverseValueOrigin : defaultValue
+      });
     };
     const setLeft = () => {
-      setState(defaultValue);
+      setValue(defaultValue);
     };
     const setRight = () => {
-      setState(reverseValueOrigin);
+      setValue(reverseValueOrigin);
     };
 
     return {
       toggle,
-      set,
       setLeft,
       setRight,
     };
   }, []);
 
-  return [state, action];
+  return {value, ...action};
 }
 
 export default useToggle;

@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useMemo } from "react";
+
 export type UseBooleanOutput = {
   value: boolean;
   setTrue: () => void;
