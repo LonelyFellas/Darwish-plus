@@ -1,6 +1,6 @@
 import { Title, Canvas, Source } from "@storybook/blocks";
 import { Divider, Typography } from "antd";
-import {ReactNode, useEffect, useState} from "react";
+import React, {ReactNode, useEffect, useState} from "react";
 import APITableProperty from "./api-talbe-property";
 
 interface ApiDs {
@@ -20,7 +20,7 @@ interface HookDocsViewProps {
     description?: string;
     sourceUrl?: string;
   };
-  apiDescription: any;
+  apiDescription: ReactNode;
   paramDs?: DSProps;
   returnDs?: DSProps;
 }
