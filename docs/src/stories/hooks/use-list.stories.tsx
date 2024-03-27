@@ -77,8 +77,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "对数组类型的状态进行高度管理",
-            beCare: "暂无注意描述",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useList/index.ts",
           }}
           apiDescription="Tracks an array and provides methods to modify it.
             To cause component re-render you have to use these methods instead of direct interaction with array - it won't cause re-render.

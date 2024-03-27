@@ -101,7 +101,7 @@ export const ProductionAuthFalse = () => {
     `, 'import { Tag } from "antd"')} dependencies={{Tag}}/>
   );
 }
-const meta: Meta<any> = {
+const meta: Meta<unknown> = {
   title: "Hooks/useConsole",
   component: DevDemo,
   tags: ["autodocs"],

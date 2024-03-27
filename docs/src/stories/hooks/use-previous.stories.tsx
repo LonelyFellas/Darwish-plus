@@ -38,7 +38,6 @@ const meta: Meta<typeof Demo> = {
           args={{
             description: "保存上一次状态的 Hook.",
             beCare: "注意：⚠️初始值的上一个值是 undefined",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/usePrivous/index.ts",
           }}
           apiDescription={htv("管理 SessionStorage 的增删改查", "#336699")}
           paramDs={{

@@ -33,7 +33,6 @@ const meta: Meta<typeof Demo> = {
           args={{
             description: "鼠标左键按压或者手指按压",
             beCare: "注意：⚠️鼠标右键按压也允许(可配置不允许)",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/usePress/index.ts",
           }}
           apiDescription="React sensor hook that fires a callback after long pressing."
           paramDs={{

@@ -31,7 +31,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "浏览器 Local 储存的增删改的操作，进行了多层封装.",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useLocalStorage/index.ts",
           }}
           apiDescription={htv("管理 LocalStorage 的增删改查", "#336699")}
           paramDs={{

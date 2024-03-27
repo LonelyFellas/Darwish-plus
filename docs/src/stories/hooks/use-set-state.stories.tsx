@@ -39,7 +39,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "对Object类型的状态进行管理。与Class组件的状态管理风格保持一致, 特别是在修改状态的时候，足矣体现出来Class组件修改状态是一样的",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useSetState/index.ts",
           }}
           apiDescription="操作这个钩子，基本和Class更新和删除State都是一致的风格"
           paramDs={{

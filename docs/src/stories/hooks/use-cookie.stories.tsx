@@ -40,8 +40,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "Manages a cookie value with utility functions.",
-            sourceUrl:
-              "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useCookie/index.ts",
           }}
           apiDescription={
             "Custom hook that handles boolean state with useful utility functions."

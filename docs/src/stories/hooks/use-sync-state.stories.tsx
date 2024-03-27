@@ -41,7 +41,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "解决异步拿不到最新值和深度改变State",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useSyncState/index.ts",
           }}
           apiDescription="api使用风格时mutable的方式来改变state"
           paramDs={{

@@ -26,8 +26,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "监听鼠标经过特定元素",
-            beCare: "暂无注意描述",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useHover/index.ts",
           }}
           apiDescription="React UI sensor hooks that track if some element is being hovered by a mouse."
           paramDs={{

@@ -25,8 +25,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "A hook that returns a function which can be used to force the component to re-render.",
-            sourceUrl:
-              "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useUpdate/index.ts",
           }}
           apiDescription={
             "Force the component to re-render."

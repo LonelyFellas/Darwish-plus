@@ -35,8 +35,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "监听键盘的某一个键位(内部使用了useLayoutEffect钩子)，从而触发一个回调.",
-            beCare: "暂无注意描述",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useKey/index.ts",
           }}
           apiDescription="React UI sensor hook that executes a handler when a keyboard key is used."
           paramDs={{

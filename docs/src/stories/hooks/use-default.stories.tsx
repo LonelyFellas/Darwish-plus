@@ -34,8 +34,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "React state hook that returns the default value when state is null or undefined.",
-            sourceUrl:
-              "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useDefault/index.ts",
           }}
           apiDescription={
             "React state hook that a hook to set default value."

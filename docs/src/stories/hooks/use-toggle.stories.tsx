@@ -36,7 +36,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "A hook that toggle states.",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useToggle/index.ts",
           }}
           apiDescription="Custom hook that handles toggle state with useful utility functions."
           paramDs={{

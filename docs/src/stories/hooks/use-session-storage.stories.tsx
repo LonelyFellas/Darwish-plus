@@ -31,7 +31,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "浏览器 Session 储存的增删改的操作，进行了多层封装",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useSessionStorage/index.ts",
           }}
           apiDescription={htv("管理 SessionStorage 的增删改查", "#336699")}
           paramDs={{

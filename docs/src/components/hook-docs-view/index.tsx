@@ -39,13 +39,12 @@ export default function HookDocsView(props: HookDocsViewProps) {
     title,
     description = "No description",
     beCare,
-    sourceUrl = "https://github.com/LonelyFellas/Darwish-plus/tree/main/hooks",
   } = props.args || {};
 
   useEffect(() => {
     setQueryTitle(document.querySelector(".sbdocs-title.sb-unstyled")?.textContent || '');
   }, []);
-
+  console.log(queryTitle, 'queryTitle')
   return (
     <>
       <Title>{title}</Title>
@@ -60,7 +59,7 @@ export default function HookDocsView(props: HookDocsViewProps) {
           {
             title: "Source Code",
             onClick: () => {
-              window.open(sourceUrl, "_blank");
+               window.open(`https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/${document.querySelector(".sbdocs-title.sb-unstyled")?.textContent}/index.ts`, "_blank");
             },
           },
         ]}

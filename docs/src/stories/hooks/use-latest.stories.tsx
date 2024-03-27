@@ -34,8 +34,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "This is mostly useful to get access to the latest value of some props or state inside an asynchronous callback, instead of that value at the time the callback was created from.",
-            beCare: "暂无注意描述",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useLatest/index.ts",
           }}
           apiDescription="useLatest 返回的永远是最新值"
           paramDs={{

@@ -30,7 +30,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "An object containing the boolean state value and utility functions to manipulate the state.",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useBoolean/index.ts",
           }}
           apiDescription="Custom hook that handles boolean state with useful utility functions."
           paramDs={{

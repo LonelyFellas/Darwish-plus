@@ -30,7 +30,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "对set集合的数据状态进行管理",
-            sourceUrl: "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useSet/index.ts",
           }}
           apiDescription="对set集合数据的增删改查"
           paramDs={{

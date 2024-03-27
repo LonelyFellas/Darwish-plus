@@ -5,34 +5,34 @@ import {Tag} from "antd";
 import htv from "../../utils/handleTypeView.tsx";
 
 export const Demo = () => {
-    const [person, setPerson] = useImmer({
-      name: 'darwish',
-      d: {
-        b: {
-          info: {
-            age: 25,
-          },
+  const [person, setPerson] = useImmer({
+    name: 'darwish',
+    d: {
+      b: {
+        info: {
+          age: 25,
         },
       },
-    });
-    return (
-      <div>
-        <button
-          onClick={() => {
-            setPerson((draft) => {
-              draft.d.b.info.age++;
-            });
-          }}
-        >
-          change info
-        </button>
-        <h1>Age: {person.d.b.info.age}</h1>
-      </div>
-    );
+    },
+  });
+  return (
+    <div>
+      <button
+        onClick={() => {
+          setPerson((draft) => {
+            draft.d.b.info.age++;
+          });
+        }}
+      >
+        change info
+      </button>
+      <h1>Age: {person.d.b.info.age}</h1>
+    </div>
+  );
 };
 
 const meta: Meta<typeof Demo> = {
-  title: "Hooks/useImmer",
+  title: "Hooks/useImmerReducer",
   component: Demo,
   tags: ["autodocs"],
   parameters: {

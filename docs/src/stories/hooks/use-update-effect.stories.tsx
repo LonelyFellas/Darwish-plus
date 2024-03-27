@@ -43,8 +43,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "A hook alike useEffect but skips running the effect for the first time.",
-            sourceUrl:
-              "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useUpdateEffect/index.ts",
           }}
           apiDescription={
             "The API is exactly the same as React.useEffect."

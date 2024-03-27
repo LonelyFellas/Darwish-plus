@@ -26,8 +26,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "React lifecycle hook that runs an effect only once.",
-            sourceUrl:
-              "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useEffectOnce/index.ts",
           }}
           apiDescription={
             "apply an effect only once when the component mounts."

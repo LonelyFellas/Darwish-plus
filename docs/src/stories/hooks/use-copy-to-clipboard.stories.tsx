@@ -14,7 +14,7 @@ export function Demo() {
       .then(() => {
         console.log('Copied!', { text })
       })
-      .catch((error: any) => {
+      .catch((error: unknown) => {
         console.error('Failed to copy!', error)
       })
   }
@@ -43,8 +43,6 @@ const meta: Meta<typeof Demo> = {
         <HookDocsView
           args={{
             description: "Copies text to the clipboard.",
-            sourceUrl:
-              "https://github.com/LonelyFellas/Darwish-plus/blob/main/hooks/useCopyToClipboard/index.ts",
           }}
           apiDescription={
             "Custom hook that copies text to the clipboard with a utility function."
