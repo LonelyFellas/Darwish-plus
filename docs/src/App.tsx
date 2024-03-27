@@ -17,7 +17,7 @@ function App() {
       {/*<Button onClick={() => setStates({ age: states.age + 1 })}>Age ++</Button>*/}
       <BearCounter />
       <Controls />
-      <h1>{`Hello World ${Math.random() + 10}`}</h1>
+      <h1>{`Hello World! ${Math.random() + 10}`}</h1>
     </Space>
   );
 }
