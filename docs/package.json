@@ -10,7 +10,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "sb": "storybook dev -p 6006",
-    "sb:build": "build storybook"
+    "sb:build": "storybook build -o dist-sb"
   },
   "dependencies": {
     "@uiw/react-code-preview": "^5.1.2",
