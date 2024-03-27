@@ -40,7 +40,7 @@ const meta: Meta<typeof Demo> = {
       page: () => (
         <HookDocsView
           args={{
-            description: "解决一个State 复杂多层赋值问题, 通过 immer 库实现. mutate state in a more convenient way.",
+            description: "文档暂缺",
           }}
           apiDescription="React state hook that uses immer to allow you to mutate state in a more convenient way."
           paramDs={{
