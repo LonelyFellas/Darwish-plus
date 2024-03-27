@@ -8,7 +8,6 @@ function App() {
     name: "darwish",
     age: 23,
   });
-
   return (
     <Space direction="vertical" className="p-2">
       <h1 className="text-emerald-600">
