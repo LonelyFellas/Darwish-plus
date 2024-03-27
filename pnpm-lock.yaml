@@ -43,7 +43,7 @@ importers:
         specifier: ^0.4.3
         version: 0.4.4(eslint@8.52.0)
       typescript:
-        specifier: ^5.0.2
+        specifier: ^5.2.2
         version: 5.2.2
 
   docs:
