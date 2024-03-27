@@ -8,8 +8,7 @@
     "preinstall": "npx only-allow pnpm",
     "docs": "pnpm --filter docs dev",
     "docs:build": "pnpm --filter docs build",
-    "sb": "pnpm --filter docs run sb",
-
+    "sb": "pnpm --filter docs run sb:build",
     "sb:clean": "rimraf storybook-static",
     "publish": "pnpm --filter @darwish/hooks publish",
     "test": "echo \"Error: no test specified\" && exit 1"
