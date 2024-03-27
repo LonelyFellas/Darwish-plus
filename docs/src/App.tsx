@@ -11,12 +11,13 @@ function App() {
 
   return (
     <Space direction="vertical" className="p-2">
-      <h1 className="text-emerald-600">
-        Hello {states.name}, i am {states.age} year(s) old{" "}
-      </h1>
-      <Button onClick={() => setStates({ age: states.age + 1 })}>Age ++</Button>
+      {/*<h1 className="text-emerald-600">*/}
+      {/*  Hello {states.name}, i am {states.age} year(s) old{" "}*/}
+      {/*</h1>*/}
+      {/*<Button onClick={() => setStates({ age: states.age + 1 })}>Age ++</Button>*/}
       <BearCounter />
       <Controls />
+      <h1>{`Hello World ${Math.random() + 10}`}</h1>
     </Space>
   );
 }
