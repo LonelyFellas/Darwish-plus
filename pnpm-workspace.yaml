@@ -1,6 +1,6 @@
 packages:
-  - 'docs'
-  - 'hooks/**' 
+  - 'docs/**'
+  - 'hooks/**'
   - 'ui/**'
   - 'utils/**'
   - 'types/**'
