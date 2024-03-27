@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "src/main.tsx",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -21,9 +22,9 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@darwish/hooks-core": "workspace:*",
-    "@darwish/only-when": "workspace:*",
-    "@darwish/utils-is": "workspace:*",
+    "@darwish/hooks-core": "latest",
+    "@darwish/only-when": "latest",
+    "@darwish/utils-is": "latest",
     "@storybook/addon-essentials": "^8.0.2",
     "@storybook/addon-interactions": "^8.0.2",
     "@storybook/addon-links": "^8.0.2",
