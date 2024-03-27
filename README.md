@@ -1,5 +1,16 @@
 # changeset-darwish
 
+
+## Dev
+```bash
+  # all dependencies 
+  $ pnpm install -w  
+  # run dev server
+  $ pnpm run dev 
+  # run storybook server
+  $ pnpm run sb 
+```
+
 ## Publish
 
 ```bash
