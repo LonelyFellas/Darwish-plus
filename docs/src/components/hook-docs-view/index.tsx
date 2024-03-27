@@ -44,7 +44,7 @@ export default function HookDocsView(props: HookDocsViewProps) {
   useEffect(() => {
     setQueryTitle(document.querySelector(".sbdocs-title.sb-unstyled")?.textContent || '');
   }, []);
-  console.log(queryTitle, 'queryTitle')
+
   return (
     <>
       <Title>{title}</Title>

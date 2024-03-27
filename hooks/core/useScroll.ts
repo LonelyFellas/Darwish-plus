@@ -9,7 +9,7 @@ interface OnScrollEvent extends Omit<ScrollHTMLElementEventMap, 'target'> {
   };
 }
 
-const useScroll = (ref: React.MutableRefObject<HTMLDivElement>) => {
+const useScroll = <T extends React.MutableRefObject<any>>(ref: T) => {
   const [page, setPage] = useSetState({
     x: 0,
     y: 0,
