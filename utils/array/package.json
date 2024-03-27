@@ -22,8 +22,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish-utils/clone-deep": "workspace:*",
-    "@darwish/utils-is": "workspace:*"
+    "@darwish-utils/clone-deep": "latest",
+    "@darwish/utils-is": "latest"
   },
   "keywords": [
     "array",

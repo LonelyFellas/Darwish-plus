@@ -74,13 +74,13 @@ importers:
         version: 4.5.2(@types/react@18.2.67)(react@18.2.0)
     devDependencies:
       '@darwish/hooks-core':
-        specifier: workspace:*
+        specifier: latest
         version: link:../hooks/core
       '@darwish/only-when':
-        specifier: workspace:*
+        specifier: latest
         version: link:../ui/only-when
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../utils/is
       '@storybook/addon-essentials':
         specifier: ^8.0.2
@@ -146,10 +146,10 @@ importers:
   hooks/core:
     dependencies:
       '@darwish/types':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../types
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../utils/is
       immer:
         specifier: ^10.0.2
@@ -180,7 +180,7 @@ importers:
   hooks/useDefault:
     dependencies:
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../utils/is
 
   hooks/useDisplayDevError: {}
@@ -190,7 +190,7 @@ importers:
   hooks/useEventListener:
     dependencies:
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../utils/is
 
   hooks/useFirstMountState: {}
@@ -216,28 +216,28 @@ importers:
   hooks/useList:
     dependencies:
       '@darwish/use-update':
-        specifier: workspace:*
+        specifier: latest
         version: link:../useUpdate
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../utils/is
 
   hooks/useMount:
     dependencies:
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../utils/is
 
   hooks/usePress:
     dependencies:
       '@darwish/use-set-state':
-        specifier: workspace:*
+        specifier: latest
         version: link:../useSetState
 
   hooks/usePrevious:
     dependencies:
       '@darwish/use-update-effect':
-        specifier: workspace:*
+        specifier: latest
         version: link:../useUpdateEffect
 
   hooks/useQrCode:
@@ -255,16 +255,16 @@ importers:
   hooks/useScroll:
     dependencies:
       '@darwish/use-event-listener':
-        specifier: workspace:*
+        specifier: latest
         version: link:../useEventListener
       '@darwish/use-set-state':
-        specifier: workspace:*
+        specifier: latest
         version: link:../useSetState
 
   hooks/useSet:
     dependencies:
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../utils/is
 
   hooks/useSetState: {}
@@ -274,13 +274,13 @@ importers:
   hooks/useSyncState:
     dependencies:
       '@darwish/use-display-dev-error':
-        specifier: workspace:*
+        specifier: latest
         version: link:../useDisplayDevError
 
   hooks/useTextSelection:
     dependencies:
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../utils/is
 
   hooks/useToggle: {}
@@ -288,10 +288,10 @@ importers:
   hooks/useUnmount:
     dependencies:
       '@darwish/use-latest':
-        specifier: workspace:*
+        specifier: latest
         version: link:../useLatest
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../utils/is
 
   hooks/useUpdate: {}
@@ -299,7 +299,7 @@ importers:
   hooks/useUpdateEffect:
     dependencies:
       '@darwish/use-first-mount-state':
-        specifier: workspace:*
+        specifier: latest
         version: link:../useFirstMountState
 
   types: {}
@@ -319,10 +319,10 @@ importers:
   utils/array:
     dependencies:
       '@darwish-utils/clone-deep':
-        specifier: workspace:*
+        specifier: latest
         version: link:../cloneDeep
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../is
 
   utils/cloneDeep: {}
@@ -330,19 +330,19 @@ importers:
   utils/deepEqual:
     dependencies:
       '@darwish-utils/others':
-        specifier: workspace:*
+        specifier: latest
         version: link:../others
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../is
 
   utils/dlv:
     dependencies:
       '@darwish/types':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../types
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../is
 
   utils/is: {}
@@ -350,10 +350,10 @@ importers:
   utils/obj:
     dependencies:
       '@darwish-utils/clone-deep':
-        specifier: workspace:*
+        specifier: latest
         version: link:../cloneDeep
       '@darwish/utils-is':
-        specifier: workspace:*
+        specifier: latest
         version: link:../is
 
   utils/others: {}
@@ -361,7 +361,7 @@ importers:
   utils/str-ts:
     dependencies:
       '@darwish/types':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../types
 
 packages:

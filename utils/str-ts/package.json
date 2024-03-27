@@ -23,7 +23,7 @@
     "toPublish": "npm run prepublish && npm publish"
   },
   "dependencies": {
-    "@darwish/types": "workspace:*"
+    "@darwish/types": "latest"
   },
   "keywords": [
     "string",

@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish/use-first-mount-state": "workspace:*"
+    "@darwish/use-first-mount-state": "latest"
   },
   "keywords": [
     "use-update-effect",

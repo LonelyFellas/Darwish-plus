@@ -22,8 +22,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish/utils-is": "workspace:*",
-    "@darwish/use-latest": "workspace:*"
+    "@darwish/utils-is": "latest",
+    "@darwish/use-latest": "latest"
   },
   "keywords": [
     "use-unmount",

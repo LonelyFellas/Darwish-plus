@@ -22,8 +22,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish/types": "workspace:*",
-    "@darwish/utils-is": "workspace:*",
+    "@darwish/types": "latest",
+    "@darwish/utils-is": "latest",
     "immer": "^10.0.2",
     "js-cookie": "^3.0.5"
   },

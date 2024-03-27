@@ -22,8 +22,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish/use-event-listener": "workspace:*",
-    "@darwish/use-set-state": "workspace:*"
+    "@darwish/use-event-listener": "latest",
+    "@darwish/use-set-state": "latest"
   },
   "keywords": [
     "use-scroll",
