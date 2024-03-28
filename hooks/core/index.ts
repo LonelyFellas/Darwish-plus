@@ -29,4 +29,8 @@ export { default as useCopyToClipboard } from "./useCopyToClipboard";
 export { useRouteState, useRouteStates } from "./useRouteState";
 export { default as useConsole } from "./useConsole";
 export { default as useRafState } from "./useRafState";
+export { default as useCreation } from "./useCreation"
+export { default as useRequest } from "./useRequest";
+export { default as useTitle } from "./useTitle";
+export { default as useFavicon } from "./useFavicon";
 export * as authConsole from "./utils/auth-console";

@@ -15,5 +15,5 @@
     "types": ["@darwish/types", "@types/node"]
   },
   "exclude": ["node_modules"],
-  "include": ["./index.ts", "./utils/auth-console.tsx"]
+  "include": ["./index.ts", "./utils/*"]
 }
