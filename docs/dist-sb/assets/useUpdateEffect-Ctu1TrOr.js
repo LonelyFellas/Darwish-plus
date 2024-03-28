@@ -1,1 +1,0 @@
-import{r}from"./index-BBkUAzwr.js";var f=function(){var t=r.useRef(!0);return t.current?(t.current=!1,!0):t.current},a=function(t,e){var u=f();r.useEffect(function(){if(!u)return t()},e)};export{a as u};
