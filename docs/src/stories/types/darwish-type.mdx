@@ -1,0 +1,116 @@
+# darwish
+类型描述
+
+### 安装
+安装后需要在`tsconfig.json`中配置`"complierOptions.types": ["@darwish/types"]`。
+```json
+{
+  "compilerOptions": {
+    "types": ["@darwish/types"]
+  }
+}
+```
+```bash
+ $ npm install @darwish/types
+```
+
+### 示例
+```ts
+import { Equal, Iteraor, StrToArr } from '@darwish/types'
+
+type TestEqual = Equal<1, 1> // true
+type TestIteraor = Iteraor<5> // [1, 2, 3, 4, 5]
+type TestStrToArr = StrToArr<'123'> // ['1', '2', '3']
+```
+### `darwish` 所有的类型
+
+```ts
+/**
+* 判断两个类型是否相等
+* @example
+* type A = Equal<1, 1> // true
+* type B = Equal<1, 2> // false
+* type C = Equal<{a: number}, {a: string}> // false
+* type D = Equal<{a: number}, {readonly a: number}> // false
+* type E = Equal<{a: number}, {a: number}> // true
+*/
+type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <
+  T
+  >() => T extends Y ? 1 : 2
+    ? true
+    : false;
+```
+```ts
+/**
+* @description 将一个类型变成增长数字的数组
+* @be_care 限制1000
+* @example Iteraor<number, 5> --> [1, 2, 3, 4, 5]
+*/
+type Iteraor<
+  N extends number,
+  Temp extends any[] = []
+  > = Temp["length"] extends N ? Temp : Iteraor<N, [...Temp, Temp["length"]]>;
+```
+```ts
+/**
+* @description 将一个字符串类型变成数组类型
+*/
+type StrToArr<
+  T extends string,
+  TempArr extends any[] = []
+  > = T extends `${infer F}${infer R}`
+    ? StrToArr<R, [...TempArr, F]>
+    : TempArr;
+```
+```ts
+/**
+* @description 推断一个字符串和数组的长度
+*/
+type Length<
+  T extends string | any[],
+  TempArr extends any[] = []
+  > = T extends any[] ? T["length"] : StrToArr<T>["length"];
+```
+```ts
+/**
+* @description IsBlanks 判断一个类型是否为空
+*/
+type IsBlanks<T = ""> = T extends string
+  ? T extends ""
+    ? true
+    : false
+  : T extends any[]
+  ? T["length"] extends 0
+    ? true
+    : false
+  : T extends Record<PropertyKey, any>
+  ? keyof T extends never
+    ? true
+    : false
+  : T extends null
+  ? true
+  : T extends undefined
+  ? true
+  : false;
+```
+```ts
+/**
+* @description 讲一个字符串类型的数字变成变成 number 类型
+*/
+type ToNumber<T> = T extends number
+  ? T
+  : T extends `${infer S extends number}`
+  ? S extends number
+    ? S
+    : S
+  : never;
+```
+```ts
+/**
+* @description 将一个number类型变成字符串
+*/
+type ToString<T> = T extends string ? T : T extends number ? `${T}` : never;
+type AnyObj = Record<PropertyKey, any>;
+type EmptyObj = Record<PropertyKey, never>;
+type AnyFunc = (...args: any[]) => any;
+```
