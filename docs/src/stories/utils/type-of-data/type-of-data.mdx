@@ -1,0 +1,38 @@
+import { Meta, Title, Source, Primary, Controls, Stories, Canvas } from "@storybook/blocks"
+import * as TypeOfData from './type-of-data.stories';
+
+<Meta of={TypeOfData} />
+
+
+<Title>TypeOfData</Title>
+```bash
+$ npm run @darwish/type-of-data
+```
+
+## 描述
+该库检查数据的类型，返回数据的类型字符串。
+
+## 使用+测试用例
+```js
+const typeOfData = require("@darwish/type-of-data").default;
+describe('typeOfData of utils function to test', () => {
+  it('check type', () => {
+    expect(typeOfData(null)).toBe('null');
+    expect(typeOfData(undefined)).toBe('undefined');
+    expect(typeOfData('')).toBe('string');
+    expect(typeOfData(false)).toBe('boolean');
+    expect(typeOfData({ name: 1 })).toBe('object');
+    expect(typeOfData([])).toBe('array');
+    expect(typeOfData(Symbol(1))).toBe('symbol');
+    expect(typeOfData(new Date())).toBe('date');
+    expect(typeOfData(() => 1)).toBe('function');
+    expect(typeOfData(new RegExp('/d/g'))).toBe('regexp');
+    expect(typeOfData(new Set())).toBe('set');
+    expect(typeOfData(new Map())).toBe('map');
+  });
+});
+```
+
+## API
+<Canvas of={TypeOfData.Parameters} sourceState="none"/>
+### <a href="https://github.com/LonelyFellas/Darwish-plus/tree/main/utils/type-of-data" target="_blank">🧭 Open Github-源码(点击查看源码)</a>

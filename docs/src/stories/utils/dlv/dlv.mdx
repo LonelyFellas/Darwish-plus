@@ -1,0 +1,99 @@
+import { Meta, Title, Source, Primary, Controls, Stories, Canvas } from "@storybook/blocks"
+import * as Dlv from './dlv.stories';
+
+<Meta of={Dlv} />
+
+
+<Title>utils-dlv</Title>
+```bash
+$ npm run @darwish/utils-dlv
+```
+
+## 描述
+该库为了解决`Object`类型在取值中有可能中间会报错的方案
+
+## 使用+测试用例
+```js
+const dlv = require('@darwish/utils-dlv').default;
+
+const obj = {
+  undef: undefined,
+  zero: 0,
+  one: 1,
+  n: null,
+  f: false,
+  a: {
+    two: 2,
+    b: {
+      three: 3,
+      c: {
+        four: 4,
+      },
+    },
+  },
+};
+
+describe('dlv function test', () => {
+  it('should access a top-level property', () => {
+    expect(dlv(obj, 'undef')).toBe(undefined);
+    expect(dlv(obj, 'zero')).toBe(0);
+    expect(dlv(obj, 'one')).toBe(1);
+    expect(dlv(obj, 'n')).toBe(null);
+    expect(dlv(obj, 'f')).toBe(false);
+    expect(dlv(obj, 'a')).toStrictEqual({
+      two: 2,
+      b: { three: 3, c: { four: 4 } },
+    });
+    expect(dlv(obj, ['undef'])).toBe(undefined);
+    expect(dlv(obj, ['zero'])).toBe(0);
+    expect(dlv(obj, ['one'])).toBe(1);
+    expect(dlv(obj, ['n'])).toBe(null);
+    expect(dlv(obj, ['f'])).toBe(false);
+  });
+  it('should access a nested property', () => {
+    expect(dlv(obj, 'a.two')).toBe(2);
+    expect(dlv(obj, 'a.b')).toStrictEqual({ three: 3, c: { four: 4 } });
+    expect(dlv(obj, 'a.b.three')).toBe(3);
+    expect(dlv(obj, 'a.b.c')).toStrictEqual({ four: 4 });
+    expect(dlv(obj, 'a.b.c.four')).toBe(4);
+    expect(dlv(obj, ['a'])).toStrictEqual({
+      two: 2,
+      b: { three: 3, c: { four: 4 } },
+    });
+    expect(dlv(obj, ['a', 'two'])).toBe(2);
+    expect(dlv(obj, ['a', 'b'])).toStrictEqual({ three: 3, c: { four: 4 } });
+    expect(dlv(obj, ['a', 'b', 'three'])).toBe(3);
+    expect(dlv(obj, ['a', 'b', 'c'])).toStrictEqual({ four: 4 });
+    expect(dlv(obj, ['a', 'b', 'c', 'four'])).toBe(4);
+    expect(dlv(obj, ['a', 'b', 'c', 'four', 'five'])).toBe(undefined);
+  });
+  it("should return the default value if the path doesn't exist", () => {
+    expect(dlv(obj, 'a.b.c.five', 'default')).toBe('default');
+    expect(dlv(obj, ['a', 'b', 'c', 'five'], 'default')).toBe('default');
+  });
+  it('should return the default value if the path is invalid', () => {
+    expect(dlv(obj, 'a..b.c.five', 'default')).toBe('default');
+    expect(dlv(obj, ['a', '', 'b', 'c', 'five'], 'default')).toBe('default');
+  });
+  it('not exist with default function', () => {
+    expect(dlv(obj, 'a.b.c.five', () => 'default')).toBe('default');
+    expect(dlv(obj, ['a', 'b', 'c', 'five'], () => 'default')).toBe('default');
+  });
+  it('not exist with default function and context', () => {
+    expect(
+      dlv(obj, 'a.b.c.five', function () {
+        return this.a.two;
+      }),
+    ).toBe(2);
+    expect(
+      dlv(obj, ['a', 'b', 'c', 'five'], function () {
+        return this.a.b.three;
+      }),
+    ).toBe(3);
+  });
+});
+```
+
+## API
+<Canvas of={Dlv.Parameters} sourceState="none"/>
+### <a href="https://github.com/LonelyFellas/Darwish-plus/tree/main/utils/dlv" target="_blank">🧭 Open Github-源码(点击查看源码)</a>

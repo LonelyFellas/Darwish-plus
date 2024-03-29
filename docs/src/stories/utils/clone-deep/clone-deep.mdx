@@ -1,0 +1,38 @@
+import { Meta, Title, Source, Primary, Controls, Stories, Canvas } from "@storybook/blocks"
+import * as CloneDeep from './clone-deep.stories';
+
+<Meta of={CloneDeep} />
+
+
+<Title>clone-deep</Title>
+```bash
+$ npm run @darwish/clone-deep
+```
+
+## 描述
+该库对一个对象进行一个深度克隆，支持对象、数组、Map、Set、Date、RegExp、Function、Symbol、BigInt、原始类型、null、undefined等类型的克隆。
+
+## 使用+测试用例
+```js
+import cloneDeep from '@darwish/clone-deep';
+
+const obj = {
+  name: 'darwish',
+  age: 18,
+}
+const arr = [1, 2, 3];
+const cloneObj = cloneDeep(obj);
+const cloneArr = cloneDeep(arr);
+
+// test object
+console.log(cloneObj); // { name: 'darwish', age: 18 }
+console.log(cloneObj === obj); // false
+
+// test array
+console.log(cloneArr); // [1, 2, 3]
+console.log(cloneArr === arr); // false
+```
+
+## API
+<Canvas of={CloneDeep.Parameters} sourceState="none"/>
+### <a href="https://github.com/LonelyFellas/Darwish-plus/tree/main/utils/clone-deep" target="_blank">🧭 Open Github-源码(点击查看源码)</a>
