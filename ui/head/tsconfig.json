@@ -14,5 +14,5 @@
     "moduleResolution": "Node"
   },
   "exclude": ["node_modules"],
-  "include": ["."]
+  "include": ["./src"]
 }
