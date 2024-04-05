@@ -90,5 +90,15 @@ export default class ExtendArray<T> extends Array implements Array<T> {
 
   toShuffle = ExtendArray.shuffle;
 
-
+  static flattenOneDimArr = <T>(array: T[]): T[] => {
+    let ans: T[] = [];
+    array.forEach((item) => {
+      if (isArray(item)) {
+        ans = ans.concat(this.flattenOneDimArr(item));
+      } else {
+        ans.push(item as T);
+      }
+    });
+    return ans;
+  };
 }
