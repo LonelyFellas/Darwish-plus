@@ -1,5 +1,5 @@
-import useStorage from './useStorage';
-export default function useLocalStorage(key: string) {
-  const StorageStateAction = useStorage('localStorage', key);
+import useStorage from "./useStorage";
+export default function useLocalStorage<T>(key: string, defaultValue: T) {
+  const StorageStateAction = useStorage("localStorage", key, defaultValue);
   return StorageStateAction;
 }
