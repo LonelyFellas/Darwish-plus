@@ -49,7 +49,9 @@ type DarkModeReturn = {
  * const { isDarkMode, toggle, enable, disable, set } = useDarkMode({ defaultValue: true });
  * ```
  */
-export function useDarkMode(options: DarkModeOptions = {}): DarkModeReturn {
+export default function useDarkMode(
+  options: DarkModeOptions = {}
+): DarkModeReturn {
   const {
     defaultValue,
     localStorageKey = LOCAL_STORAGE_KEY,

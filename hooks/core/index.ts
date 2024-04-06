@@ -36,4 +36,5 @@ export { default as useFavicon } from "./useFavicon";
 export { default as useExternal } from "./useExternal";
 export { default as useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
 export { default as useMediaQuery } from "./useMediaQuery";
+export { default as useDarkMode } from "./useDarkMode";
 export * as authConsole from "./utils/auth-console";
