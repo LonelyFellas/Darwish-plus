@@ -1,32 +1,38 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-type Storage = 'sessionStorage' | 'localStorage';
+type Storage = "sessionStorage" | "localStorage";
 export type UseStorageOutput = [
   storage: string | null | undefined,
-  updateStorage: (value: unknown) => void,
-  removeStorage: () => void,
-]
-export default function useStorage(type: Storage, key: string): UseStorageOutput {
-  const [storage, setStorage] = useState(() => {
-    if (typeof window === 'undefined') return null as any;
+  updateStorage: <T>(value: T) => void,
+  removeStorage: () => void
+];
+export default function useStorage(
+  type: Storage,
+  key: string
+): UseStorageOutput {
+  const [storage, setStorage] = useState<string | undefined>(() => {
+    if (typeof window === "undefined") return undefined;
     try {
-      return JSON.parse(window[type].getItem(key) || '');
+      return window[type].getItem(key) === null
+        ? undefined
+        : JSON.parse(window[type].getItem(key) as string);
     } catch {
-      return window[type as Storage].getItem(key) || '';
+      return window[type as Storage].getItem(key);
     }
   });
 
-  const updateStorage = (value: unknown) => {
-    window[type].setItem(key, JSON.stringify(value));
-    setStorage(value);
+  const updateStorage = <T>(value: T) => {
+    const stringifyedValue = JSON.stringify(value);
+    window[type].setItem(key, stringifyedValue);
+    setStorage(stringifyedValue);
   };
 
   const removeStorage = () => {
     window[type].removeItem(key);
     if (storage) {
-      setStorage(null);
+      setStorage(undefined);
     }
   };
 
-  return [storage, updateStorage, removeStorage]
+  return [storage, updateStorage, removeStorage];
 }
