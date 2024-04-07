@@ -24,10 +24,8 @@ export default function useStorage<T>(
   });
 
   const updateStorage = (value: T | ((prev: T) => T)) => {
-    const stringifyedValue = JSON.stringify(
-      isFunction(value) ? value(storage) : value
-    );
-    window[type].setItem(key, stringifyedValue);
+    value = isFunction(value) ? value(storage) : value;
+    window[type].setItem(key, JSON.stringify(value));
     setStorage(value);
   };
 
