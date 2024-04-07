@@ -28,7 +28,7 @@ export default function useStorage<T>(
       isFunction(value) ? value(storage) : value
     );
     window[type].setItem(key, stringifyedValue);
-    setStorage(stringifyedValue);
+    setStorage(value);
   };
 
   const removeStorage = () => {
