@@ -12,8 +12,8 @@
     "skipLibCheck": true,
     "declaration": true,
     "moduleResolution": "Node",
-    "types": ["@darwish/types", "@types/node"],
+    "types": ["@darwish/types", "@types/node", "vitest/globals"],
   },
-  "exclude": ["node_modules"],
-  "include": ["./index.ts", "./utils/*"]
+  "exclude": ["node_modules", "./vitest.config.ts"],
+  "include": ["./index.ts", "./utils/*", "__tests__/*" ]
 }

@@ -5,7 +5,7 @@ export type UseBooleanOutput = {
   set: (settingValue: boolean) => void;
   setTrue: () => void;
   setFalse: () => void;
-  toggle: (settingValue: ChangeEvent<any> | boolean) => void;
+  toggle: () => void;
 };
 /**
  * @author darwish
@@ -33,10 +33,8 @@ const useBoolean: (defaultValue?: boolean) => UseBooleanOutput = (
     };
     const setTrue = () => setValue(true);
     const setFalse = () => setValue(false);
-    const toggle = (settingValue: boolean | ChangeEvent<any>) => {
-      setValue((prev) =>
-        typeof settingValue === "boolean" ? settingValue : !prev
-      );
+    const toggle = () => {
+      setValue((prev) => !prev);
     };
     return {
       set,
