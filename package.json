@@ -11,7 +11,8 @@
     "sb": "pnpm --filter docs run sb",
     "sb:build": "pnpm --filter docs run sb:build",
     "sb:clean": "rimraf storybook-static",
-    "publish": "pnpm --filter @darwish/hooks publish"
+    "publish": "pnpm --filter @darwish/hooks publish",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "darwish <289582304@qq.com>",
