@@ -38,4 +38,5 @@ export { default as useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffec
 export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useDarkMode } from "./useDarkMode";
 export * as authConsole from "./utils/auth-console";
-export { default as useWindowSize } from "./useWindowSize";
+// export { default as useWindowSize } from "./useWindowSize";
+export { default as useSize } from "./useSize";
