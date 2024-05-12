@@ -20,7 +20,6 @@
     "build": "pnpm build:cjs && pnpm build:es",
     "prepublish": "npm run build",
     "test": "vitest"
-
   },
   "dependencies": {
     "@darwish/types": "latest",
@@ -37,6 +36,7 @@
   "author": "darwish <28958230@qq.com>",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.5",
     "@types/js-cookie": "^3.0.3",
     "@types/node": "^20.7.0"
   }

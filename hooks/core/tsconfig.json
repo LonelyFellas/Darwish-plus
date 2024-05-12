@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "declaration": true,
     "moduleResolution": "Node",
-    "types": ["@darwish/types", "@types/node", "@types/jest", "vitest/globals", "@testing-library/jest-dom"],
+    "types": ["@darwish/types", "vitest/globals"],
   },
   "exclude": ["node_modules", "./vitest.config.ts"],
   "include": ["./index.ts", "./utils/*", "__tests__/*" ]
