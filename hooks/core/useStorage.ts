@@ -1,4 +1,4 @@
-import { isFunction } from "@darwish/utils-is";
+import { isFunction, isObject, isString } from "@darwish/utils-is";
 import { useState } from "react";
 
 type Storage = "sessionStorage" | "localStorage";
@@ -25,7 +25,7 @@ export default function useStorage<T>(
 
   const updateStorage = (value: T | ((prev: T) => T)) => {
     value = isFunction(value) ? value(storage) : value;
-    window[type].setItem(key, JSON.stringify(value));
+    window[type].setItem(key, isString(value) ? value : JSON.stringify(value));
     setStorage(value);
   };
 
