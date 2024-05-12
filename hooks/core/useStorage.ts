@@ -10,7 +10,7 @@ export type UseStorageOutput<T> = [
 export default function useStorage<T>(
   type: Storage,
   key: string,
-  defaultValue: T
+  defaultValue?: T
 ): UseStorageOutput<T> {
   const [storage, setStorage] = useState(() => {
     if (typeof window === "undefined") return undefined;

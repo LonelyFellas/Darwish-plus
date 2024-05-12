@@ -5,20 +5,29 @@ import { Tag } from "antd";
 import htv from "../../utils/handleTypeView.tsx";
 
 export const Demo = () => {
-  const [storage, setStorage, removeStorage] = useSessionStorage('darwish');
+  const [storage, setStorage, removeStorage] =
+    useSessionStorage<number>("darwish");
 
   console.log("session-storage.darwish: ", storage);
   return (
     <div>
       <h1>Session-Storage: {storage}</h1>
-      <button onClick={() => {
-        setStorage(new Date().getTime())
-      }}>update </button>
-      <button onClick={() => {
-        removeStorage()
-      }}>remove</button>
+      <button
+        onClick={() => {
+          setStorage(new Date().getTime());
+        }}
+      >
+        update{" "}
+      </button>
+      <button
+        onClick={() => {
+          removeStorage();
+        }}
+      >
+        remove
+      </button>
     </div>
-  )
+  );
 };
 
 const meta: Meta<typeof Demo> = {
@@ -39,8 +48,8 @@ const meta: Meta<typeof Demo> = {
                 name: "key",
                 type: htv("string"),
                 defaultValue: "",
-                description: htv("查询的 SessionStorage 的属性名", "#336699")
-              }
+                description: htv("查询的 SessionStorage 的属性名", "#336699"),
+              },
             ],
           }}
           returnDs={{
@@ -50,18 +59,18 @@ const meta: Meta<typeof Demo> = {
               {
                 name: "storage",
                 type: htv("string | null | undefined"),
-                description: htv("SessionStorage 的值", "#336699")
+                description: htv("SessionStorage 的值", "#336699"),
               },
               {
                 name: "updateStorage",
                 type: htv("(updateVal: unknown) => void"),
-                description: htv("更新 SessionStorage 值函数", "#336699")
+                description: htv("更新 SessionStorage 值函数", "#336699"),
               },
               {
                 name: "removeStorage",
                 type: htv("() => void;"),
-                description: htv("删除 SessionStorage 值函数", "#336699" )
-              }
+                description: htv("删除 SessionStorage 值函数", "#336699"),
+              },
             ],
           }}
         />
