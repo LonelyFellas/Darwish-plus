@@ -245,7 +245,11 @@ importers:
         specifier: latest
         version: link:../is
 
-  utils/others: {}
+  utils/others:
+    dependencies:
+      '@darwish/utils-is':
+        specifier: workspace:^0.0.3
+        version: link:../is
 
   utils/str-ts:
     dependencies:

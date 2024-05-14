@@ -1,5 +1,5 @@
 {
-  "name": "@darwish-utils/others",
+  "name": "@darwish-utils/utils-others",
   "version": "1.0.0",
   "description": "",
   "main": "./lib/index.js",
@@ -28,5 +28,8 @@
     "darwish"
   ],
   "author": "darwish-utils <28958230@qq.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@darwish/utils-is": "workspace:^0.0.3"
+  }
 }
