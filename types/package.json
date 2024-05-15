@@ -1,13 +1,12 @@
 {
   "name": "@darwish/types",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "",
   "main": "./global.d.ts",
   "types": "./global.d.ts",
   "typings": "./global.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "npm publish"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "exports": {
     ".": {

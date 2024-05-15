@@ -1,3 +1,15 @@
+type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
+  k: infer I
+) => void
+  ? I
+  : never;
+type LastOf<T> = UnionToIntersection<
+  T extends any ? () => T : never
+> extends () => infer R
+  ? R
+  : never;
+
+type Push<T extends any[], V> = [...T, V];
 export declare global {
   namespace Darwish {
     /**
@@ -77,7 +89,39 @@ export declare global {
     type AnyObj = Record<PropertyKey, any>;
     type EmptyObj = Record<PropertyKey, never>;
     type AnyFunc = (...args: any[]) => any;
+    /**
+     *  获取对象属性值类型
+     *  @example
+     *  type A = { a: { b: string } };
+     *  type B = PathValue<A, 'a'>; // { b: string }
+     *  type B = PathValue<A, 'a.b'>; // string
+     *  type C = PathValue<A, 'a.c'>; // never
+     */
+    type PathValue<T, P extends string | null = null> = P extends null
+      ? T
+      : P extends `${infer K}.${infer Rest}`
+      ? K extends keyof T
+        ? PathValue<T[K], Rest>
+        : never
+      : P extends keyof T
+      ? T[P]
+      : never;
+    /**
+     * @description 将一个联合类型变成元组类型
+     * @example
+     * type A = UnionToTuple<1 | 2 | 3>; // [1, 2, 3]
+     * type B = UnionToTuple<never>; // []
+     * type C = UnionToTuple<1 | 2 | 3 | never>; // [1, 2, 3]
+     */
+    type UnionToTuple<
+      T,
+      L = LastOf<T>,
+      N = [T] extends [never] ? true : false
+    > = true extends N ? [] : Push<UnionToTuple<Exclude<T, L>>, L>;
 
+    /**
+     * @deprecated 请使用 `React.ElementType` 代替
+     */
     type ElementLabel = keyof JSX.IntrinsicElements;
     /**
      * @deprecated 请使用 `React.ElementRef` 代替
