@@ -118,6 +118,32 @@ export declare global {
       L = LastOf<T>,
       N = [T] extends [never] ? true : false
     > = true extends N ? [] : Push<UnionToTuple<Exclude<T, L>>, L>;
+    /**
+     * @description 两个参数默认流程判断
+     * */
+    type Switch<B, A = null> = A extends null ? B : A;
+    /**
+     * @description
+     * 实现范型函数
+     *
+     * !! 值得注意第二个参数是函数的返回值，如果入参为空，则第一个参数一定指定为null
+     * @example
+     * const a: GenericsFn = () => {} // () => void;
+     * const a1: GenericsFn<null, number> = () => number; // () => number;
+     * const b: GenericsFn<{ index: number }> = (arg) => {
+     *     console.log(arg.index);
+     * }; // (arg: {index: number}) => void
+     * const c: GenericsFn<[number, string, boolean]> = (age, number, isOld) => {
+     *     console.log(age);
+     *     console.log(number);
+     *     console.log(isOld);
+     * }; // (...args: [number, string, boolean]) = void
+     * */
+    type GenericsFn<P extends any[] | AnyObj = null, R = null> = P extends null
+      ? () => Switch<void, R>
+      : P extends any[]
+      ? (...args: P) => Switch<void, R>
+      : (arg: P) => Switch<void, R>;
 
     /**
      * @deprecated 请使用 `React.ElementType` 代替
