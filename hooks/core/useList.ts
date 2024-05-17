@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { isFunction } from "@darwish/utils-is";
+import { isFunction } from "@darwish/is";
 import useUpdate from "./useUpdate";
 
 export type UseHookStates<T extends unknown[]> = T | ((args: T) => T);

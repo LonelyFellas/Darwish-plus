@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { isFunction } from "@darwish/utils-is";
+import { isFunction } from "@darwish/is";
 
 /**
  * @description A hook to set default value
@@ -12,7 +12,10 @@ import { isFunction } from "@darwish/utils-is";
  * updateState(null); // state = 'default value'
  * updateState(undefined); // state = 'default value'
  */
-const useDefault = <T>(defaultVal: T, initialVal: T): [T, (updateValue: T | null | undefined | ((prev: T) => T)) => void] => {
+const useDefault = <T>(
+  defaultVal: T,
+  initialVal: T
+): [T, (updateValue: T | null | undefined | ((prev: T) => T)) => void] => {
   const [value, setValue] = useState(initialVal);
 
   const updateValueFn = (

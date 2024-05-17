@@ -23,8 +23,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish-utils/clone-deep": "latest",
-    "@darwish/utils-is": "latest"
+    "@darwish/clone-deep": "latest",
+    "@darwish/is": "latest"
   },
   "keywords": [
     "array",

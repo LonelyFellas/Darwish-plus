@@ -93,12 +93,12 @@ importers:
       '@darwish/hooks-core':
         specifier: latest
         version: link:../hooks/core
+      '@darwish/is':
+        specifier: latest
+        version: link:../utils/is
       '@darwish/only-when':
         specifier: latest
         version: link:../ui/only-when
-      '@darwish/utils-is':
-        specifier: latest
-        version: link:../utils/is
       '@storybook/addon-essentials':
         specifier: ^8.0.2
         version: 8.0.4(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
@@ -168,12 +168,12 @@ importers:
 
   hooks/core:
     dependencies:
+      '@darwish/is':
+        specifier: latest
+        version: link:../../utils/is
       '@darwish/types':
         specifier: latest
         version: link:../../types
-      '@darwish/utils-is':
-        specifier: latest
-        version: link:../../utils/is
       immer:
         specifier: ^10.0.2
         version: 10.0.2
@@ -199,7 +199,7 @@ importers:
 
   ui/only-when:
     dependencies:
-      '@darwish/utils-is':
+      '@darwish/is':
         specifier: latest
         version: link:../../utils/is
 
@@ -207,10 +207,10 @@ importers:
 
   utils/array:
     dependencies:
-      '@darwish-utils/clone-deep':
+      '@darwish/clone-deep':
         specifier: latest
         version: link:../cloneDeep
-      '@darwish/utils-is':
+      '@darwish/is':
         specifier: latest
         version: link:../is
 
@@ -218,37 +218,31 @@ importers:
 
   utils/deepEqual:
     dependencies:
-      '@darwish-utils/others':
-        specifier: latest
-        version: link:../others
-      '@darwish/utils-is':
+      '@darwish/is':
         specifier: latest
         version: link:../is
+      '@darwish/tools':
+        specifier: latest
+        version: link:../tools
 
   utils/dlv:
     dependencies:
+      '@darwish/is':
+        specifier: latest
+        version: link:../is
       '@darwish/types':
         specifier: latest
         version: link:../../types
-      '@darwish/utils-is':
-        specifier: latest
-        version: link:../is
 
   utils/is: {}
 
   utils/obj:
     dependencies:
-      '@darwish-utils/clone-deep':
+      '@darwish/clone-deep':
         specifier: latest
         version: link:../cloneDeep
-      '@darwish/utils-is':
+      '@darwish/is':
         specifier: latest
-        version: link:../is
-
-  utils/others:
-    dependencies:
-      '@darwish/utils-is':
-        specifier: workspace:^0.0.3
         version: link:../is
 
   utils/str-ts:
@@ -256,6 +250,12 @@ importers:
       '@darwish/types':
         specifier: latest
         version: link:../../types
+
+  utils/tools:
+    dependencies:
+      '@darwish/is':
+        specifier: latest
+        version: link:../is
 
 packages:
 

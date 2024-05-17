@@ -6,8 +6,8 @@ import {
   isSet,
   isNull,
   isNumber,
-} from "@darwish/utils-is";
-import { typeOfData } from "@darwish-utils/others";
+} from "@darwish/is";
+import { typeOfData } from "@darwish/tools";
 export function deepEqualByArray<T extends any[]>(
   lfs: T[],
   rfs: T[],

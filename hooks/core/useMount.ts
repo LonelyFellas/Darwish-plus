@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { isFunction, isDev } from "@darwish/utils-is";
+import { isFunction, isDev } from "@darwish/is";
 
 export default function useMount(fn: () => void) {
   if (isDev && !isFunction(fn)) {

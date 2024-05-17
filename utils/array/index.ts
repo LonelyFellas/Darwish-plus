@@ -1,4 +1,4 @@
-import { isArray } from "@darwish/utils-is";
+import { isArray } from "@darwish/is";
 
 export default class ExtendArray<T> extends Array implements Array<T> {
   value: T[] = [];

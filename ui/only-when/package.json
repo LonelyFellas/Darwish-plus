@@ -28,7 +28,7 @@
     "darwish"
   ],
   "dependencies": {
-    "@darwish/utils-is": "latest"
+    "@darwish/is": "latest"
   },
   "author": "darwish <289582304@qq.com>",
   "license": "ISC"

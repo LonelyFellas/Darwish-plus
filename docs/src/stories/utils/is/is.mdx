@@ -4,9 +4,9 @@ import * as Is from './is.stories';
 <Meta of={Is} />
 
 
-<Title>utils-is</Title>
+<Title>is</Title>
 ```bash
-$ npm run @darwish/utils-is
+$ npm run @darwish/is
 ```
 
 ## 描述
@@ -43,7 +43,7 @@ export { default as isPromise } from "./isPromise"; // 判断是否Promise函数
 
 ## 使用示例
 ```tsx
-import {isBoolean, isPromise, isDev} from "@darwish/utils-is";
+import {isBoolean, isPromise, isDev} from "@darwish/is";
 
 export default () => {
     const promise = new Promise((resolve, reject) => {
@@ -66,7 +66,7 @@ export default () => {
 
     return (
       <div>
-          <h1>utils-is</h1>
+          <h1>is</h1>
           {isDev() ? <h2>开发环境</h2> : <h2>生产环境</h2>}
       </div>
     );

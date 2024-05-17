@@ -1,5 +1,5 @@
-import cloneDeep from '@darwish-utils/clone-deep';
-import { isObject, isBlanks } from '@darwish-utils/is';
+import cloneDeep from "@darwish/clone-deep";
+import { isObject, isBlanks } from "@darwish/is";
 export default function filterUselessKeyValue<
   T extends Record<PropertyKey, any>
 >(obj: T, isFilterEmptyString: boolean = false): T {

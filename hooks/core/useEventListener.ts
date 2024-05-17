@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { isBrowser } from "@darwish/utils-is";
+import { isBrowser } from "@darwish/is";
 
 /**
  *

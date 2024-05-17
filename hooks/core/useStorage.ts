@@ -1,4 +1,4 @@
-import { isFunction, isObject, isString } from "@darwish/utils-is";
+import { isFunction, isObject, isString } from "@darwish/is";
 import { useState } from "react";
 
 type Storage = "sessionStorage" | "localStorage";

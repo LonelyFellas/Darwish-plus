@@ -1,6 +1,6 @@
 import{j as s}from"./jsx-runtime-DRTy3Uxn.js";import{useMDXComponents as r}from"./index-z5U8iC57.js";import{M as l,T as o}from"./index-D1GfW9Tl.js";import{I as d}from"./is.stories-B0lEiggB.js";import"./index-BBkUAzwr.js";import"./iframe-ZUa7SXaf.js";import"../sb-preview/runtime.js";import"./index-DUqwVN8i.js";import"./extends-CCbyfPlC.js";import"./index-B_J8iUie.js";import"./isNativeReflectConstruct-DeZAPHXq.js";import"./index-DboEQVPH.js";import"./index-DrFu-skq.js";function n(i){const e={code:"code",h2:"h2",h3:"h3",li:"li",pre:"pre",ul:"ul",...r(),...i.components};return s.jsxs(s.Fragment,{children:[s.jsx(l,{of:d}),`
-`,s.jsx(o,{children:"utils-is"}),`
-`,s.jsx(e.pre,{children:s.jsx(e.code,{className:"language-bash",children:`$ npm run @darwish/utils-is
+`,s.jsx(o,{children:"is"}),`
+`,s.jsx(e.pre,{children:s.jsx(e.code,{className:"language-bash",children:`$ npm run @darwish/is
 `})}),`
 `,s.jsx(e.h2,{id:"描述",children:"描述"}),`
 `,s.jsxs(e.ul,{children:[`
@@ -34,7 +34,7 @@ export { default as isPromise } from "./isPromise"; // 判断是否Promise函数
 `,s.jsxs(e.li,{children:[s.jsx(e.code,{children:"isUndef"})," - 判断是否为undefined"]}),`
 `]}),`
 `,s.jsx(e.h2,{id:"使用示例",children:"使用示例"}),`
-`,s.jsx(e.pre,{children:s.jsx(e.code,{className:"language-tsx",children:`import {isBoolean, isPromise, isDev} from "@darwish/utils-is";
+`,s.jsx(e.pre,{children:s.jsx(e.code,{className:"language-tsx",children:`import {isBoolean, isPromise, isDev} from "@darwish/is";
 
 export default () => {
     const promise = new Promise((resolve, reject) => {
@@ -57,7 +57,7 @@ export default () => {
 
     return (
       <div>
-          <h1>utils-is</h1>
+          <h1>is</h1>
           {isDev() ? <h2>开发环境</h2> : <h2>生产环境</h2>}
       </div>
     );

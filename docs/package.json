@@ -25,7 +25,7 @@
   "devDependencies": {
     "@darwish/hooks-core": "latest",
     "@darwish/only-when": "latest",
-    "@darwish/utils-is": "latest",
+    "@darwish/is": "latest",
     "@storybook/addon-essentials": "^8.0.2",
     "@storybook/addon-interactions": "^8.0.2",
     "@storybook/addon-links": "^8.0.2",

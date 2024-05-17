@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
-import { isArray } from "@darwish/utils-is";
+import { isArray } from "@darwish/is";
 
 export type StableActions<T> = {
   add: (addValue: T) => void;
@@ -7,8 +7,10 @@ export type StableActions<T> = {
   remove: (removeValue: T) => void;
   toggle: (toggleValue: T) => void;
   reset: () => void;
-}
-export default function useSet<T>(initialValue: Array<T> | Set<T>): [state: Set<T>, actions: StableActions<T>] {
+};
+export default function useSet<T>(
+  initialValue: Array<T> | Set<T>
+): [state: Set<T>, actions: StableActions<T>] {
   const init = useCallback(() => {
     if (isArray(initialValue)) {
       return new Set(initialValue);

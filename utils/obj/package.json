@@ -22,8 +22,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish-utils/clone-deep": "latest",
-    "@darwish/utils-is": "latest"
+    "@darwish/clone-deep": "latest",
+    "@darwish/is": "latest"
   },
   "keywords": [
     "object",
@@ -31,6 +31,6 @@
     "react",
     "darwish"
   ],
-  "author": "darwish-utils <28958230@qq.com>",
+  "author": "darwish <28958230@qq.com>",
   "license": "ISC"
 }
