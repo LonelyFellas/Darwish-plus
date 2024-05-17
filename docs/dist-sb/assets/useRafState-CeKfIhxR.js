@@ -1,0 +1,1 @@
+import{r as a}from"./index-BBkUAzwr.js";import{u as c}from"./useUnmount-rmZ4e9QM.js";var f=function(r){var t=a.useRef(0),e=a.useState(r),n=e[0],u=e[1],o=a.useCallback(function(i){cancelAnimationFrame(t.current),t.current=window.requestAnimationFrame(function(){u(i)})},[]);return c(function(){window.cancelAnimationFrame(t.current)}),[n,o]};export{f as u};

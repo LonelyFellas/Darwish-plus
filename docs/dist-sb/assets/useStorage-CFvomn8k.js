@@ -1,1 +1,0 @@
-import{r as f}from"./index-BBkUAzwr.js";function w(t,r){var n=f.useState(function(){if(typeof window>"u")return null;try{return JSON.parse(window[t].getItem(r)||"")}catch{return window[t].getItem(r)||""}}),o=n[0],a=n[1],i=function(e){window[t].setItem(r,JSON.stringify(e)),a(e)},u=function(){window[t].removeItem(r),o&&a(null)};return[o,i,u]}export{w as u};
