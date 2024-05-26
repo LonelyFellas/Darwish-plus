@@ -15,5 +15,5 @@
     "types": ["@darwish/types", "vitest/globals"],
   },
   "exclude": ["node_modules", "./vitest.config.ts"],
-  "include": ["./index.ts", "./utils/*", "__tests__/*" ]
+  "include": ["./index.ts", "./utils/*", "__tests__/*", "useWarnMount.ts" ]
 }

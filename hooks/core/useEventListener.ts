@@ -1,16 +1,9 @@
 import { useEffect } from "react";
 import { isBrowser } from "@darwish/is";
 
-/**
- *
- * @param name
- * @param event
- * @param callback
- * @param options
- */
 export default function useEventListener<
   K extends keyof HTMLElementEventMap,
-  U extends Darwish.ElementRef<any>
+  U extends React.ElementRef<any>
 >(
   name: React.RefObject<U>,
   event: K,
@@ -18,13 +11,6 @@ export default function useEventListener<
   options?: boolean | AddEventListenerOptions
 ): void;
 
-/**
- *
- * @param name 222
- * @param event
- * @param callback
- * @param option
- */
 export default function useEventListener<K extends keyof WindowEventMap>(
   name: Window,
   event: K,
@@ -34,7 +20,7 @@ export default function useEventListener<K extends keyof WindowEventMap>(
 
 export default function useEventListener<
   K extends keyof WindowEventMap & keyof HTMLElementEventMap,
-  U extends Darwish.ElementRef<Darwish.ElementLabel>
+  U extends React.ElementRef<React.ElementType>
 >(
   name: Window | React.RefObject<U>,
   event: K,

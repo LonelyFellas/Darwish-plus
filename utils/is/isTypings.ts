@@ -11,13 +11,7 @@ export const isDate = (value: unknown): value is Date =>
 export const isObject = (
   value: unknown,
   excludeProxy = true
-): value is Record<PropertyKey, any> => {
-  const isObj = objProtoCallType(value, "object");
-  const a = new Proxy({}, {});
-  console.log("isProxy", isProxy(a));
-  if (isObj && excludeProxy) return !isProxy(value);
-  return isObj;
-};
+): value is Record<PropertyKey, any> => objProtoCallType(value, "object");
 export const isSet = (value: unknown): value is Set<any> =>
   objProtoCallType(value, "set");
 export const isMap = (value: unknown): value is Map<any, any> =>
