@@ -20,17 +20,11 @@ describe("chunk", () => {
     ]);
   });
 
-  // it("should treat falsey `size` values, except `undefined`, as `0`", () => {
-  //   const expected = lodashStable.map(falsey, (value) =>
-  //     value === undefined ? [[0], [1], [2], [3], [4], [5]] : []
-  //   );
-
-  //   const actual = lodashStable.map(falsey, (size, index) =>
-  //     index ? chunk(array, size) : chunk(array)
-  //   );
-
-  //   expect(actual).toEqual(expected);
-  // });
+  it("should treat falsey `size` values, except `undefined`, as `0`", () => {
+    const actual = chunk(array, undefined);
+    console.log("actual1", actual);
+    expect(actual).toEqual([1, 2, 3, 4, 5]);
+  });
 
   // it("should ensure the minimum `size` is `0`", () => {
   //   const values = lodashStable

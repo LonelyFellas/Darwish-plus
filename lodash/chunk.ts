@@ -1,9 +1,11 @@
-import { isArray } from "@darwish/is";
+import { isArray, isBlanks } from "@darwish/is";
 
-export default function chunk<T>(array: T[], size: number): any[] {
+export default function chunk<T>(array: T[], size = 1): any[] {
   if (!isArray(array)) {
     return [];
   }
+  console.log(isBlanks(size));
+  if (isBlanks(size)) return array;
   let count = 0;
   let index = 0;
   const result: T[][] = [];
