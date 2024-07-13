@@ -1,19 +1,10 @@
-import {
-  isArray,
-  isDate,
-  isMap,
-  isObject,
-  isSet,
-  isNull,
-  isNumber,
-} from "@darwish/is";
+import { isArray, isDate, isMap, isSet, isNull, isNumber } from "@darwish/is";
 import { typeOfData } from "@darwish/tools";
 export function deepEqualByArray<T extends any[]>(
   lfs: T[],
   rfs: T[],
   isSort: boolean = false
 ) {
-  debugger;
   if (lfs.length !== rfs.length) {
     return false;
   }
@@ -59,7 +50,6 @@ export function deepEqualByObject<T extends Record<any, any>>(lfs: T, rfs: T) {
 }
 
 export default function deepEqual<T>(lfs: T, rfs: T) {
-  debugger;
   if (typeOfData(lfs) !== typeOfData(rfs)) return false;
   let isEqual = lfs === rfs;
   if (typeof lfs === "object" && typeof rfs === "object") {
