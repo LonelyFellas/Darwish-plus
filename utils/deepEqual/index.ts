@@ -22,7 +22,6 @@ export function deepEqualByArray<T extends any[]>(
   return true;
 }
 export function deepEqualByObject<T extends Record<any, any>>(lfs: T, rfs: T) {
-  debugger;
   const key1 = Object.keys(lfs);
   const value1 = Object.values(lfs);
 
