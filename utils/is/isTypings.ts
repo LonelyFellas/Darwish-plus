@@ -1,4 +1,3 @@
-import isProxy from "./isProxy";
 export const isDate = (value: unknown): value is Date =>
   objProtoCallType(value, "date");
 /**
