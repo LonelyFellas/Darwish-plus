@@ -1,5 +1,3 @@
-import { isString, isNumber } from "@darwish/is";
-
 type AddParam = number | string;
 
 /**

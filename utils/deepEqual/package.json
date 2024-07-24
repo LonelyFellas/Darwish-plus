@@ -21,8 +21,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@darwish/is": "latest",
-    "@darwish/tools": "latest"
+    "@darwish/utils-is": "latest",
+    "@darwish/utils-tools": "latest"
   },
   "keywords": [
     "deep-equal",

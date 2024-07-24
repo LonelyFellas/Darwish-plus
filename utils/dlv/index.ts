@@ -1,5 +1,11 @@
 /* eslint-disable no-param-reassign */
-import { isArray, isDev, isFunction, isObject, isString } from "@darwish/is";
+import {
+  isArray,
+  isDev,
+  isFunction,
+  isObject,
+  isString,
+} from '@darwish/utils-is';
 
 /**
  * @description Get value from object by path.
@@ -15,18 +21,18 @@ export default function dlv<T>(
   key: string | string[],
   def?: string,
   p?: number,
-  undef?: T
+  undef?: T,
 ) {
   if (!isObject(obj)) {
     if (isDev) {
-      console.error("obj is not an object");
+      console.error('obj is not an object');
     }
     return obj;
   }
 
   let keys: any[] = [];
   if (isString(key)) {
-    keys = key.split ? key.split(".") : [];
+    keys = key.split ? key.split('.') : [];
   } else if (isArray(key)) {
     keys = key;
   }

@@ -1,6 +1,6 @@
-import { useMemo, useRef } from "react";
-import { isFunction } from "@darwish/is";
-import useUpdate from "./useUpdate";
+import { isFunction } from '@darwish/utils-is';
+import { useMemo, useRef } from 'react';
+import useUpdate from './useUpdate';
 
 export type UseHookStates<T extends unknown[]> = T | ((args: T) => T);
 export type UseListUtils<T> = {
@@ -13,7 +13,7 @@ export type UseListUtils<T> = {
   upsert: (predicate: (a: T, b: T) => boolean, updateValue: T) => void;
   filter: (
     callbackFn: (value: T, index?: number, array?: T[]) => boolean,
-    thisArg?: any
+    thisArg?: any,
   ) => void;
   sort: (compareFn: (a: T, b: T) => number) => void;
   removeAt: (index: number) => void;
@@ -22,7 +22,7 @@ export type UseListUtils<T> = {
 };
 const resolveHooksState = <T extends Array<unknown>>(
   newList: UseHookStates<T>,
-  oldList: T
+  oldList: T,
 ): T => {
   if (isFunction(newList)) {
     return newList.length ? newList(oldList) : newList([] as any);
@@ -44,7 +44,9 @@ function useList<T>(initialList: Array<T>): [Array<T>, UseListUtils<T>] {
       },
       updateAt: (updateIndex: number, updateItem: T) => {
         utils.set(
-          list.current.map((item, i) => (i === updateIndex ? updateItem : item))
+          list.current.map((item, i) =>
+            i === updateIndex ? updateItem : item,
+          ),
         );
       },
       insertAt: (insertIndex: number, insertItem: T) => {
@@ -61,12 +63,12 @@ function useList<T>(initialList: Array<T>): [Array<T>, UseListUtils<T>] {
       },
       update: (predicate: (a: T, b: T) => boolean, updateItem: T) => {
         utils.set((prev: T[]) =>
-          prev.map((item) => (predicate(item, updateItem) ? updateItem : item))
+          prev.map((item) => (predicate(item, updateItem) ? updateItem : item)),
         );
       },
       updateFirst: (predicate: (a: T, b: T) => boolean, updateItem: T) => {
         const index = list.current.findIndex((item) =>
-          predicate(item, updateItem)
+          predicate(item, updateItem),
         );
         if (index >= 0) {
           utils.updateAt(1, updateItem);
@@ -74,7 +76,7 @@ function useList<T>(initialList: Array<T>): [Array<T>, UseListUtils<T>] {
       },
       upsert: (predicate: (a: T, b: T) => boolean, updateItem: T) => {
         const index = list.current.findIndex((item) =>
-          predicate(item, updateItem)
+          predicate(item, updateItem),
         );
         if (index >= 0) {
           utils.updateAt(1, updateItem);
@@ -87,7 +89,7 @@ function useList<T>(initialList: Array<T>): [Array<T>, UseListUtils<T>] {
       },
       filter: (
         callbackFn: (value: T, index: number, array: T[]) => boolean,
-        thisArg?: any
+        thisArg?: any,
       ) => {
         utils.set((curr: T[]) => curr.slice().filter(callbackFn, thisArg));
       },

@@ -1,7 +1,7 @@
-import React, { useCallback } from "react";
-import useSetState from "../useSetState";
-import { isFunction } from "@darwish/is";
-import type { Options } from "../useRequest";
+import { isFunction } from '@darwish/utils-is';
+import React, { useCallback } from 'react';
+import type { Options } from '../useRequest';
+import useSetState from '../useSetState';
 
 type States<T> = {
   data: T | null;
@@ -9,13 +9,13 @@ type States<T> = {
   error: any;
 };
 type Flag =
-  | "before"
-  | "useRequest"
-  | "error"
-  | "success"
-  | "finally"
-  | "cancel";
-type DataStats<T> = States<T>["data"];
+  | 'before'
+  | 'useRequest'
+  | 'error'
+  | 'success'
+  | 'finally'
+  | 'cancel';
+type DataStats<T> = States<T>['data'];
 export default function useFetch<TData = null, TParams extends any[] = []>({
   service,
   options,
@@ -32,42 +32,42 @@ export default function useFetch<TData = null, TParams extends any[] = []>({
     loading: false,
     error: null,
   });
-  const flag = React.useRef<Flag>("before");
+  const flag = React.useRef<Flag>('before');
 
   const run = useCallback(
     (runParams: any) => {
       setStates({ loading: true });
-      flag.current = "useRequest";
+      flag.current = 'useRequest';
       onBefore?.(runParams);
       service(runParams)
         .then((res) => {
-          if (flag.current === "cancel") return;
+          if (flag.current === 'cancel') return;
           onSuccess?.(res, (runParams || []) as TParams);
           setStates({ data: res });
-          flag.current = "success";
+          flag.current = 'success';
         })
         .catch((err) => {
-          if (flag.current === "cancel") return;
+          if (flag.current === 'cancel') return;
           onError?.(err);
           setStates({ data: defaultData, error: err });
-          flag.current = "error";
+          flag.current = 'error';
         })
         .finally(() => {
-          if (flag.current === "cancel") return;
+          if (flag.current === 'cancel') return;
           onFinally?.(runParams, states.data as TData, states.error);
           setStates({ loading: false });
-          flag.current = "finally";
+          flag.current = 'finally';
         });
     },
-    [states.loading, ...(refreshDeps || [])]
+    [states.loading, ...(refreshDeps || [])],
   );
   const cancel = () => {
     setStates({ loading: false });
-    flag.current = "cancel";
+    flag.current = 'cancel';
   };
 
   const mutate = (
-    data: DataStats<TData> | ((prev: DataStats<TData>) => DataStats<TData>)
+    data: DataStats<TData> | ((prev: DataStats<TData>) => DataStats<TData>),
   ) => setStates({ data: isFunction(data) ? data(states.data) : data });
 
   return {

@@ -1,4 +1,4 @@
-import { isNumber, isString } from "@darwish/is";
+import { isNumber, isString } from '@darwish/utils-is';
 
 /**
  * @author Darwish <289582304@qq.com>

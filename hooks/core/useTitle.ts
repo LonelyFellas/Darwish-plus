@@ -1,6 +1,6 @@
-import { isBrowser } from "@darwish/is";
-import { useEffect, useRef } from "react";
-import useUnmount from "./useUnmount";
+import { isBrowser } from '@darwish/utils-is';
+import { useEffect, useRef } from 'react';
+import useUnmount from './useUnmount';
 
 /**
  * This hook is used to set the title of the page.
@@ -8,7 +8,7 @@ import useUnmount from "./useUnmount";
  * @param restoreOnUnmount Whether to restore the title when the component unmounts.
  */
 export default function useTitle(title: string, restoreOnUnmount = false) {
-  const titleRef = useRef(isBrowser ? document.title : "");
+  const titleRef = useRef(isBrowser ? document.title : '');
   useEffect(() => {
     document.title = title;
   }, []);

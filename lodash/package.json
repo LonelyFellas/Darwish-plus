@@ -20,7 +20,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@darwish/is": "latest"
+    "@darwish/utils-is": "latest"
   },
   "author": "darwish <289582304@qq.com>",
   "license": "ISC"

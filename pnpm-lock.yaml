@@ -93,12 +93,12 @@ importers:
       '@darwish/hooks-core':
         specifier: latest
         version: 0.0.16
-      '@darwish/is':
-        specifier: latest
-        version: 0.0.4
       '@darwish/only-when':
         specifier: latest
         version: 0.0.8
+      '@darwish/utils-is':
+        specifier: latest
+        version: 0.0.5
       '@storybook/addon-essentials':
         specifier: ^8.0.2
         version: 8.0.4(@types/react@18.2.67)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -168,12 +168,12 @@ importers:
 
   hooks/core:
     dependencies:
-      '@darwish/is':
-        specifier: latest
-        version: 0.0.4
       '@darwish/types':
         specifier: latest
         version: 0.0.10
+      '@darwish/utils-is':
+        specifier: latest
+        version: 0.0.5
       immer:
         specifier: ^10.0.2
         version: 10.0.2
@@ -193,9 +193,9 @@ importers:
 
   lodash:
     devDependencies:
-      '@darwish/is':
+      '@darwish/utils-is':
         specifier: latest
-        version: 0.0.4
+        version: 0.0.5
 
   types: {}
 
@@ -205,9 +205,9 @@ importers:
 
   ui/only-when:
     dependencies:
-      '@darwish/is':
+      '@darwish/utils-is':
         specifier: latest
-        version: 0.0.4
+        version: 0.0.5
 
   utils: {}
 
@@ -216,29 +216,29 @@ importers:
       '@darwish/clone-deep':
         specifier: latest
         version: 0.1.0
-      '@darwish/is':
+      '@darwish/utils-is':
         specifier: latest
-        version: 0.0.4
+        version: 0.0.5
 
   utils/cloneDeep: {}
 
   utils/deepEqual:
     dependencies:
-      '@darwish/is':
+      '@darwish/utils-is':
         specifier: latest
-        version: 0.0.4
-      '@darwish/tools':
+        version: 0.0.5
+      '@darwish/utils-tools':
         specifier: latest
         version: 0.0.1
 
   utils/dlv:
     dependencies:
-      '@darwish/is':
-        specifier: latest
-        version: 0.0.4
       '@darwish/types':
         specifier: latest
         version: 0.0.10
+      '@darwish/utils-is':
+        specifier: latest
+        version: 0.0.5
 
   utils/is: {}
 
@@ -247,9 +247,9 @@ importers:
       '@darwish/clone-deep':
         specifier: latest
         version: 0.1.0
-      '@darwish/is':
+      '@darwish/utils-is':
         specifier: latest
-        version: 0.0.4
+        version: 0.0.5
 
   utils/str-ts:
     dependencies:
@@ -259,9 +259,9 @@ importers:
 
   utils/tools:
     dependencies:
-      '@darwish/is':
+      '@darwish/utils-is':
         specifier: latest
-        version: 0.0.4
+        version: 0.0.5
 
 packages:
 
@@ -1063,20 +1063,17 @@ packages:
   '@darwish/hooks-core@0.0.16':
     resolution: {integrity: sha512-WRdXJEZEUqgjCIzj528HBpcVJFa8V9cI4fqhMh9CBMDSYJSvVzicSbKZaYP0sKLgFUeySbG4lF05uK75oUp5kw==}
 
-  '@darwish/is@0.0.4':
-    resolution: {integrity: sha512-0J6qoVP7x98n/ktUaVU+NRwAZGt81bN5Vefhj3wfZvn5Gn6nJQ2EgliFbsGaAdtAVHHordwMZL+Z2twlRWfl1Q==}
-
   '@darwish/only-when@0.0.8':
     resolution: {integrity: sha512-SFsIyth2NHi2nNXRT2oER6VVfd7C9RieaibO8xd9Qhpj0FX5DlZ54KzKEL+jkQnNlC61QUR3OLZ/zp7hEL4rpQ==}
-
-  '@darwish/tools@0.0.1':
-    resolution: {integrity: sha512-XEbjP2OVXyFYWqC+0ub8gZF784n/+rC1P1SB6TNk8NF9USVaUyKYZ9mECAL/PXmOGnu9pxqnmemmiB4tPS6Ruw==}
 
   '@darwish/types@0.0.10':
     resolution: {integrity: sha512-XR9GCG9guf3rFAajgy9t04HSPhviZvdSzAyxoPGIe92gLeJnNLkG7C1Pxzlgfhsgpk/oU7n1Ff0Bh86EJ0iUfQ==}
 
-  '@darwish/utils-is@0.0.3':
-    resolution: {integrity: sha512-M3DNqqptEvGAwaAPw3hJC07/IHD+CqY4mLLuGszskC1g2RLHFu4dHyMN5O/Yu8zKaAE4RARlO1rZ8iFZ/DdZRA==}
+  '@darwish/utils-is@0.0.5':
+    resolution: {integrity: sha512-k0DK3kqT1OlETWQQAAIgmL8v5oZNUjI9CvziMlQ6WzsN2vyM86oTfWEDli44izy/c/oK8OItOQuS+xrlzduGnA==}
+
+  '@darwish/utils-tools@0.0.1':
+    resolution: {integrity: sha512-/gV9khogf+ClpE85jwTJGpKlNK9nhH8sjuhN2bYY2coCrlCFZ08inKmaQXJSM1Jsge4NPBuVFLCSTBR6dYUPyQ==}
 
   '@discoveryjs/json-ext@0.5.7':
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -7497,23 +7494,21 @@ snapshots:
   '@darwish/hooks-core@0.0.16':
     dependencies:
       '@darwish/types': 0.0.10
-      '@darwish/utils-is': 0.0.3
+      '@darwish/utils-is': 0.0.5
       immer: 10.0.2
       js-cookie: 3.0.5
 
-  '@darwish/is@0.0.4': {}
-
   '@darwish/only-when@0.0.8':
     dependencies:
-      '@darwish/utils-is': 0.0.3
-
-  '@darwish/tools@0.0.1':
-    dependencies:
-      '@darwish/is': 0.0.4
+      '@darwish/utils-is': 0.0.5
 
   '@darwish/types@0.0.10': {}
 
-  '@darwish/utils-is@0.0.3': {}
+  '@darwish/utils-is@0.0.5': {}
+
+  '@darwish/utils-tools@0.0.1':
+    dependencies:
+      '@darwish/utils-is': 0.0.5
 
   '@discoveryjs/json-ext@0.5.7': {}
 

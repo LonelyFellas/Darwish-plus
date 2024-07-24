@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import { isFunction, isDev } from "@darwish/is";
+import { isDev, isFunction } from '@darwish/utils-is';
+import { useEffect } from 'react';
 
 export default function useMount(fn: () => void) {
   if (isDev && !isFunction(fn)) {
     console.error(
-      `useMount: parameter \`fn\` expected to be a function, but got "${typeof fn}".`
+      `useMount: parameter \`fn\` expected to be a function, but got "${typeof fn}".`,
     );
   }
 

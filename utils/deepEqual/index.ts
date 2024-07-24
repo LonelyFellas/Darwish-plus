@@ -1,9 +1,18 @@
-import { isArray, isDate, isMap, isSet, isNull, isNumber } from "@darwish/is";
-import { typeOfData } from "@darwish/tools";
+/* eslint-disable @typescript-eslint/no-use-before-define */
+import {
+  isArray,
+  isDate,
+  isMap,
+  isNull,
+  isNumber,
+  isSet,
+} from '@darwish/utils-is';
+import { typeOfData } from '@darwish/utils-tools';
+
 export function deepEqualByArray<T extends any[]>(
   lfs: T[],
   rfs: T[],
-  isSort: boolean = false
+  isSort: boolean = false,
 ) {
   if (lfs.length !== rfs.length) {
     return false;
@@ -51,7 +60,7 @@ export function deepEqualByObject<T extends Record<any, any>>(lfs: T, rfs: T) {
 export default function deepEqual<T>(lfs: T, rfs: T) {
   if (typeOfData(lfs) !== typeOfData(rfs)) return false;
   let isEqual = lfs === rfs;
-  if (typeof lfs === "object" && typeof rfs === "object") {
+  if (typeof lfs === 'object' && typeof rfs === 'object') {
     if (isArray(lfs) && isArray(rfs)) {
       // array
       isEqual = deepEqualByArray(lfs, rfs);
@@ -71,10 +80,10 @@ export default function deepEqual<T>(lfs: T, rfs: T) {
 
       isEqual = deepEqualByObject(lfs as any, rfs);
     }
-  } else if (typeof lfs === "function" && typeof rfs === "function") {
+  } else if (typeof lfs === 'function' && typeof rfs === 'function') {
     // function
     isEqual = lfs.toString() === rfs.toString();
-  } else if (typeof lfs === "symbol" && typeof rfs === "symbol") {
+  } else if (typeof lfs === 'symbol' && typeof rfs === 'symbol') {
     // symbol
     isEqual = lfs.toString() === rfs.toString();
   } else {

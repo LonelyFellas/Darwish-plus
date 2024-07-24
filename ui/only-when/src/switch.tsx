@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from "react";
-import { isObject, isArray } from "@darwish/is";
-import If from "./if";
+import { isArray, isObject } from '@darwish/utils-is';
+import type { PropsWithChildren } from 'react';
+import If from './if';
 
 type Label = keyof JSX.IntrinsicElements;
 type TagProps<T extends Label> = JSX.IntrinsicElements[T];
@@ -14,7 +14,7 @@ export function Switch(props: PropsWithChildren<{}>) {
   let filterChildren: any[] = [];
   if (isArray(children)) {
     filterChildren = children.filter(
-      (child) => child.type === Case || child.type === Default
+      (child) => child.type === Case || child.type === Default,
     );
   } else if (
     isObject(children) &&
@@ -23,7 +23,7 @@ export function Switch(props: PropsWithChildren<{}>) {
     filterChildren = [children];
   } else {
     console.error(
-      "Switch children must be an array of Case or Default components"
+      'Switch children must be an array of Case or Default components',
     );
   }
 
@@ -37,14 +37,14 @@ interface CaseLabelProps<T extends Label> {
 }
 export function Case(props: PropsWithChildren<{ is?: boolean }>): JSX.Element;
 export function Case<T extends Label>(
-  props: PropsWithChildren<CaseLabelProps<T>>
+  props: PropsWithChildren<CaseLabelProps<T>>,
 ): JSX.Element;
 export function Case<T extends Label>(
   props: PropsWithChildren<{
     is?: boolean;
     as?: T;
     tagProps?: JSX.IntrinsicElements[T];
-  }>
+  }>,
 ) {
   const { is = true, as: Component, tagProps, children } = props;
   const isCmpUndef = Component === undefined;
@@ -60,13 +60,13 @@ export function Case<T extends Label>(
 
 export function Default(props: PropsWithChildren<{}>): JSX.Element;
 export function Default<T extends Label>(
-  props: PropsWithChildren<LabelProps<T>>
+  props: PropsWithChildren<LabelProps<T>>,
 ): JSX.Element;
 export function Default<T extends Label>(
   props: PropsWithChildren<{
     as?: T;
     tagProps?: TagProps<T>;
-  }>
+  }>,
 ) {
   const { as: Component, tagProps } = props;
   const isCmpUndef = Component === undefined;

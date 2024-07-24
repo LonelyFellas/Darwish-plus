@@ -1,4 +1,4 @@
-import { isArray, isBlanks } from "@darwish/is";
+import { isArray, isBlanks } from '@darwish/utils-is';
 
 export default function chunk<T>(array: T[], size = 1): any[] {
   if (!isArray(array)) {

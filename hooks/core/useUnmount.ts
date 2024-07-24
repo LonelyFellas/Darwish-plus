@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { isFunction, isDev } from "@darwish/is";
-import useLatest from "./useLatest";
+import { isDev, isFunction } from '@darwish/utils-is';
+import { useEffect } from 'react';
+import useLatest from './useLatest';
 
 export default function useUnmount(fn: () => void) {
   if (isDev && !isFunction(fn)) {
     console.error(
-      `useUnmount expected parameter is a function, got ${typeof fn}`
+      `useUnmount expected parameter is a function, got ${typeof fn}`,
     );
   }
 
@@ -15,6 +15,6 @@ export default function useUnmount(fn: () => void) {
     () => () => {
       fnRef.current();
     },
-    []
+    [],
   );
 }

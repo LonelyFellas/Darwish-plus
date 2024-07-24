@@ -1,19 +1,19 @@
-import { isFunction, isObject, isString } from "@darwish/is";
-import { useState } from "react";
+import { isFunction, isString } from '@darwish/utils-is';
+import { useState } from 'react';
 
-type Storage = "sessionStorage" | "localStorage";
+type Storage = 'sessionStorage' | 'localStorage';
 export type UseStorageOutput<T> = [
   storage: T,
   updateStorage: (value: T | ((prev: T) => T)) => void,
-  removeStorage: () => void
+  removeStorage: () => void,
 ];
 export default function useStorage<T>(
   type: Storage,
   key: string,
-  defaultValue?: T
+  defaultValue?: T,
 ): UseStorageOutput<T> {
   const [storage, setStorage] = useState(() => {
-    if (typeof window === "undefined") return undefined;
+    if (typeof window === 'undefined') return undefined;
     try {
       return window[type].getItem(key) === null
         ? defaultValue

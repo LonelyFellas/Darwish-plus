@@ -1,3 +1,6 @@
+function defaultComparators(a: number, b: number): number {
+  return a - b;
+}
 /**
  * @dataSource 数据源
  */
@@ -10,12 +13,12 @@ export default function isSort<T>(dataSource: T[]): boolean;
  */
 export default function isSort<T>(
   dataSource: T[],
-  comparators: (a: T, b: T) => number
+  comparators: (a: T, b: T) => number,
 ): boolean;
 
 export default function isSort<T>(
   dataSource: T[],
-  comparators?: (a: T, b: T) => number
+  comparators?: (a: T, b: T) => number,
 ): boolean {
   let _comparators: (a: any, b: any) => number =
     comparators === void 0 ? defaultComparators : comparators;
@@ -26,8 +29,4 @@ export default function isSort<T>(
     }
   }
   return true;
-}
-
-function defaultComparators(a: number, b: number): number {
-  return a - b;
 }

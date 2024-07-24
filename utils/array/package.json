@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@darwish/clone-deep": "latest",
-    "@darwish/is": "latest"
+    "@darwish/utils-is": "latest"
   },
   "keywords": [
     "array",
