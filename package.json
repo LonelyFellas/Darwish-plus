@@ -16,7 +16,7 @@
   },
   "keywords": [],
   "author": "darwish <289582304@qq.com>",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
